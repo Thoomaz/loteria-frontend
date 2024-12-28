@@ -1,0 +1,42 @@
+.header {
+    position: fixed; /* Fixa no topo */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ocupa toda a largura da tela */
+    background-color: #5e17eb; /* Cor roxa */
+    padding: 1.5rem 2rem; /* Espaçamento interno */
+    border-radius: 0 0 20px 20px; /* Bordas arredondadas na parte inferior */
+    z-index: 1000; /* Garantir que fique acima de outros elementos */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra opcional */
+  }
+  
+  .nav {
+    display: flex;
+    position: relative;
+    justify-content: flex-end;
+    right: 80px;
+    align-items: center;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem; /* Espaçamento entre os itens */
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-links a {
+    text-decoration: underline;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .nav-links a:hover {
+    color: #cccccc; /* Cor ao passar o mouse */
+  }
+  
+  body {
+    margin: 0; /* Remove margens para evitar deslocamento do cabeçalho */
+    padding-top: 80px; /* Adiciona um espaço para compensar o cabeçalho fixo */
+  }

@@ -1,0 +1,18 @@
+.circulos {
+    border-radius: 50%;
+    background: linear-gradient(
+      135deg, 
+      rgba(94, 23,235, 0) 0%,
+      rgba(94, 23,235, 0.02) 25%,
+      rgba(94, 23,235, 0.19) 50%,
+      rgba(94, 23,235, 0.38) 75%
+      );
+}
+
+.circulo_maior {
+   width: 200px;
+   height: 200px;
+   position: absolute;
+   top: 500px;
+   left: 300px;
+}
