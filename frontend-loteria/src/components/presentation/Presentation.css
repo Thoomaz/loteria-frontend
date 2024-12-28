@@ -1,18 +1,76 @@
-.circulos {
-    border-radius: 50%;
-    background: linear-gradient(
-      135deg, 
-      rgba(94, 23,235, 0) 0%,
-      rgba(94, 23,235, 0.02) 25%,
-      rgba(94, 23,235, 0.19) 50%,
-      rgba(94, 23,235, 0.38) 75%
-      );
+.circle {
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    135deg,
+    rgba(94, 23, 235, 0) 0%,
+    rgba(94, 23, 235, 0.02) 25%,
+    rgba(94, 23, 235, 0.19) 50%,
+    rgba(94, 23, 235, 0.38) 75%
+  );
+  position: absolute;
+}
+.large-circle {
+  width: 400px;
+  height: 400px;
+  top: 150px;
+  left: 50px;
 }
 
-.circulo_maior {
-   width: 200px;
-   height: 200px;
-   position: absolute;
-   top: 500px;
-   left: 300px;
+.medium-circle {
+  width: 100px;
+  height: 100px;
+  top: 250px;
+  left: 460px;
+}
+
+.small-circle {
+  width: 60px;
+  height: 60px;
+  top: 350px;
+  left: 450px;
+}
+
+.text-presentation {
+  color: #5e17eb;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  position: absolute;
+}
+.title {
+  font-size: 125px;
+  top: 190px;
+  left: 110px;
+}
+
+.slogan {
+  font-size: 20px;
+  text-align: center;
+  top: 310px;
+  left: 900px;
+}
+
+.slogan p {
+  margin: 0;
+}
+.one {
+  margin-bottom: 5px;
+}
+
+.highlight {
+  color: white; /* Cor do texto */
+  border: 2px solid #5e17eb; /* Borda laranja */
+  border-radius: 5px; /* Cantos arredondados */
+  padding: 2px 5px; /* Espaçamento interno */
+  text-decoration: none; /* Remove o sublinhado padrão */
+  font-weight: bold; /* Deixa o texto em negrito */
+  background-color: #5e17eb;
+}
+
+.highlight:hover {
+  color: white; /* Mantém a cor do texto */
+  background-color: #5e17eb; /* Mantém o fundo */
+  border: 2px solid #5e17eb; /* Mantém a borda */
 }
