@@ -6,10 +6,8 @@ function App() {
     <>
       <Header />
       <Presentation />
-      <main>
-      </main>
     </>
   );
-};
+}
 
 export default App;
