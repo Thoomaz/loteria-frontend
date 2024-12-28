@@ -28,6 +28,11 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  padding: 0;
+  background-color: #ecfaff; /* Cor de fundo */
+  font-family: Arial, sans-serif; /* Fonte global (opcional) */
+  color: #333; /* Cor do texto padrão */
+  box-sizing: border-box;
 }
 
 h1 {
@@ -54,15 +59,14 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-/* Define a cor de fundo para toda a página */
-body {
-  background-color: #ecfaff; /* Cor de fundo*/  
+* {
+  box-sizing: inherit; /* Propaga o box-sizing */
 }
 
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #ffffff;
+    background-color: #ecfaff;
   }
   a:hover {
     color: #747bff;

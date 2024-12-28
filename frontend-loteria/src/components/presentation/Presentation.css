@@ -49,7 +49,34 @@
   font-size: 20px;
   text-align: center;
   top: 310px;
-  left: 900px;
+  right: 10%;
+}
+
+/* Responsividade com Media Queries */
+@media (max-width: 1024px) {
+  .slogan {
+    top: auto; /* Remove o deslocamento superior */
+    bottom: 40px; /* Move o slogan para 40px da parte inferior */
+    right: 20%; /* Ajusta a distância da lateral direita */
+    text-align: right; /* Alinha o texto à direita */
+  }
+}
+
+@media (max-width: 700px) {
+  .slogan {
+    top: auto;
+    bottom: 20px;
+    right: 20%; /* Ajusta para telas muito pequenas */
+    font-size: 18px; /* Reduz o tamanho da fonte */
+    text-align: center; /* Centraliza o texto */
+  }
+}
+
+@media (max-width: 480px) {
+  .slogan {
+    margin: 20px auto; /* Centraliza o texto horizontalmente */
+    font-size: 16px; /* Reduz ainda mais o tamanho da fonte */
+  }
 }
 
 .slogan p {
