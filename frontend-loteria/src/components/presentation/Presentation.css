@@ -53,20 +53,22 @@
 }
 
 /* Responsividade com Media Queries */
-@media (max-width: 1024px) {
+@media (max-width: 860px) {
   .slogan {
     top: auto; /* Remove o deslocamento superior */
-    bottom: 40px; /* Move o slogan para 40px da parte inferior */
-    right: 20%; /* Ajusta a distância da lateral direita */
-    text-align: right; /* Alinha o texto à direita */
+    bottom: 220px; /* Move o slogan para 40px da parte inferior */
+    right: 50%; /* Ajusta a distância da lateral direita */
+    text-align: center; /* Alinha o texto à direita */
+    font-size: 40px;
   }
 }
+
 
 @media (max-width: 700px) {
   .slogan {
     top: auto;
-    bottom: 20px;
-    right: 20%; /* Ajusta para telas muito pequenas */
+    bottom: 220px;
+    right: 25%; /* Ajusta para telas muito pequenas */
     font-size: 18px; /* Reduz o tamanho da fonte */
     text-align: center; /* Centraliza o texto */
   }
