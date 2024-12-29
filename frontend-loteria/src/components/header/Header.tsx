@@ -1,12 +1,16 @@
 import "./Header.css";
+import Tutorial from "../tutorial/Tutorial";
 
 function Header() {
   return (
     <header className="header">
       <nav className="nav">
         <ul className="nav-links">
-          <li>
-            <a href="#como-fazer">Como fazer</a>
+          <li className="nav-item">
+            <a href="#como-fazer">Como Fazer</a>
+            <div className="submenu">
+              <Tutorial />
+            </div>
           </li>
           <li>
             <a href="#tabela">Tabela</a>
@@ -21,6 +25,6 @@ function Header() {
       </nav>
     </header>
   );
-};
+}
 
 export default Header;
