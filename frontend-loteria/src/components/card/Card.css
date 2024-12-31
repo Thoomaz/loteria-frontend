@@ -4,17 +4,16 @@
     padding: 1rem;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
     background-color: white;
-    max-width: 100%;
-    min-width: 1000px;
-    max-height: 65px;
-    box-sizing: border-box; /* Garante que padding não quebre a largura */
+    width: 1000px;
+    max-height: 50vh;
+    
   }
   
   .cardsContainer {
     display: flex;
     flex-wrap: wrap;
     justify-content: center; /* Centraliza os cards */
-    gap: 10px; /* Espaçamento entre os cards */
+    gap: 50px; /* Espaçamento entre os cards */
     margin: 20px auto; /* Centraliza verticalmente */
     width: 10%; /* Ajuste conforme necessário */
     max-width: 100%; /* Garante que não exceda a largura da tela */
@@ -23,7 +22,6 @@
   .cardContent {
     display: flex;
     justify-content: space-between; /* Coloca os itens nas extremidades */
-    ;
   }
   
   .cardTitle {
