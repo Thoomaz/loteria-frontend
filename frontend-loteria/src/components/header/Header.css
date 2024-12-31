@@ -27,13 +27,13 @@
 }
 
 .nav-links a {
-  text-decoration: underline;
   color: white;
   font-weight: bold;
+  font-size: 18px;
 }
 
 .nav-links a:hover {
-  color: #cccccc; /* Cor ao passar o mouse */
+  color: #e3e3e3; /* Cor ao passar o mouse */
 }
 
 body {
