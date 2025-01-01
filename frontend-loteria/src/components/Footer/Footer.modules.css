@@ -6,25 +6,5 @@
   font-weight: bold;
   border-radius: 20px 20px 0 0;
   align-items: center;
-  justify-content: center;
-}
 
-.footer h1 {
-  position: relative;
-  top: 10px;
-  left: 20px;
-  font-size: 18px;
-}
-
-.footer ul {
-  font-size: 14px;
-  position: relative;
-  top: 15px;
-  left: 30px;
-  list-style-image: url("/public/github-icon.svg");
-  
-}
-
-.footer a {
-    color: var(--white);
 }

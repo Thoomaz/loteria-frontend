@@ -5,6 +5,7 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
 
   --primary-color: #5e17eb;
   --secondary-color: #ecfaff;
@@ -27,9 +28,3 @@
   box-sizing: border-box;
 }
 
-body {
-  min-width: 320px;
-  min-height: 100vh;
-  background-color: var(--secondary-color); /* Cor de fundo */
-  color: var(--soft-gray); /* Cor do texto padrão */
-}

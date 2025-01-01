@@ -1,34 +1,10 @@
 .card {
-    border: 1px solid #ddd;
-    border-radius: 15px;
-    padding: 1rem;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-    background-color: white;
-    width: 1000px;
-    max-height: 50vh;
-    
-  }
+  width: 1000px;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  padding: 1rem;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  max-height: 50vh;
   
-  .cardsContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* Centraliza os cards */
-    gap: 50px; /* Espaçamento entre os cards */
-    margin: 20px auto; /* Centraliza verticalmente */
-    width: 10%; /* Ajuste conforme necessário */
-    max-width: 100%; /* Garante que não exceda a largura da tela */
-  }
-  
-  .cardContent {
-    display: flex;
-    justify-content: space-between; /* Coloca os itens nas extremidades */
-  }
-  
-  .cardTitle {
-    font-weight: bold;
-  }
-  
-  .cardPrice {
-    font-size: 1.2rem;
-    color: #333;
   }
