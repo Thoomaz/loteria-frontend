@@ -1,55 +1,73 @@
+.container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 550px;
+  height: 405px;
+  position: relative;
+  left: 5%;
+}
+
 .circle {
   border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(
-    135deg,
-    rgba(94, 23, 235, 0) 0%,
-    rgba(94, 23, 235, 0.02) 25%,
-    rgba(94, 23, 235, 0.19) 50%,
-    rgba(94, 23, 235, 0.38) 75%
-  );
+  background: var(--circles-color);
   position: absolute;
 }
 .large-circle {
   width: 400px;
   height: 400px;
-  top: 150px;
-  left: 50px;
 }
 
 .medium-circle {
   width: 100px;
   height: 100px;
-  top: 250px;
-  left: 460px;
+  top: 110px;
+  left: 410px;
 }
 
 .small-circle {
   width: 60px;
   height: 60px;
-  top: 350px;
-  left: 450px;
+  top: 210px;
+  left: 400px;
 }
 
 .text-presentation {
-  color: #5e17eb;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  color: var(--primary-color);
   position: absolute;
 }
+
 .title {
   font-size: 125px;
-  top: 190px;
-  left: 110px;
+  top: 120px;
+  left: 60px;
 }
 
 .slogan {
-  font-size: 20px;
+  width: 240px;
+  height: 60px;
   text-align: center;
-  top: 310px;
+  position: relative;
   right: 10%;
+}
+
+.text {
+  font-size: 20px;
+}
+
+.highlight {
+  color: var(--white);
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+  padding: 1px 5px; /* Espaçamento interno */
+  text-decoration: none; /* Remove o sublinhado padrão */
+  font-weight: bold;
+  background-color: var(--primary-color);
 }
 
 /* Responsividade com Media Queries */
@@ -62,7 +80,6 @@
     font-size: 40px;
   }
 }
-
 
 @media (max-width: 700px) {
   .slogan {
@@ -79,27 +96,4 @@
     margin: 20px auto; /* Centraliza o texto horizontalmente */
     font-size: 16px; /* Reduz ainda mais o tamanho da fonte */
   }
-}
-
-.slogan p {
-  margin: 0;
-}
-.one {
-  margin-bottom: 5px;
-}
-
-.highlight {
-  color: white; /* Cor do texto */
-  border: 2px solid #5e17eb; /* Borda laranja */
-  border-radius: 5px; /* Cantos arredondados */
-  padding: 2px 5px; /* Espaçamento interno */
-  text-decoration: none; /* Remove o sublinhado padrão */
-  font-weight: bold; /* Deixa o texto em negrito */
-  background-color: #5e17eb;
-}
-
-.highlight:hover {
-  color: white; /* Mantém a cor do texto */
-  background-color: #5e17eb; /* Mantém o fundo */
-  border: 2px solid #5e17eb; /* Mantém a borda */
 }

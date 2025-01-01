@@ -1,42 +1,48 @@
 .header {
-  position: fixed; /* Fixa no topo */
-  top: 0;
-  left: 0;
   width: 100%; /* Ocupa toda a largura da tela */
-  background-color: #5e17eb; /* Cor roxa */
-  padding: 1.5rem 2rem; /* Espaçamento interno */
+  height: 80px;
+  background-color: var(--primary-color); /* Cor roxa */
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   border-radius: 0 0 20px 20px; /* Bordas arredondadas na parte inferior */
+  position: fixed; /* Fixa no topo */
   z-index: 1000; /* Garantir que fique acima de outros elementos */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra opcional */
+  box-shadow: 0 6px 6px var(--shadow); /* Sombra opcional */
+}
+
+.logo-header {
+  width: 35px;
+  height: 35px;
+  position: relative;
+  left: 20px;
+  
 }
 
 .nav {
-  display: flex;
   position: relative;
-  justify-content: flex-end;
-  right: 80px;
-  align-items: center;
+  right: 50px;
+  
+  
 }
 
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 2rem; /* Espaçamento entre os itens */
-  margin: 0;
-  padding: 0;
+
 }
 
 .nav-links a {
-  color: white;
+  text-decoration: none;
+  color: var(--white);
+  padding-right: 3rem;
+  cursor: pointer;
   font-weight: bold;
   font-size: 18px;
 }
 
 .nav-links a:hover {
-  color: #e3e3e3; /* Cor ao passar o mouse */
+  color: #c7c4c4; /* Cor ao passar o mouse */
 }
 
-body {
-  margin: 0; /* Remove margens para evitar deslocamento do cabeçalho */
-  padding-top: 80px; /* Adiciona um espaço para compensar o cabeçalho fixo */
-}
