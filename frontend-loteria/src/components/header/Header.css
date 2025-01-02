@@ -7,8 +7,7 @@
   align-items: center;
   justify-content: space-between;
   border-radius: 0 0 20px 20px; /* Bordas arredondadas na parte inferior */
-  position: fixed; /* Fixa no topo */
-  z-index: 1000; /* Garantir que fique acima de outros elementos */
+
   box-shadow: 0 6px 6px var(--shadow); /* Sombra opcional */
 }
 
