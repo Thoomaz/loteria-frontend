@@ -7,8 +7,7 @@
   align-items: center;
   justify-content: space-between;
   border-radius: 0 0 20px 20px; /* Bordas arredondadas na parte inferior */
-
-  box-shadow: 0 6px 6px var(--shadow); /* Sombra opcional */
+  box-shadow: 0 3px 3px var(--shadow); /* Sombra opcional */
 }
 
 .logo-header {
