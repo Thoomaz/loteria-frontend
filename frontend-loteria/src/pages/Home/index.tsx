@@ -2,13 +2,14 @@ import Header from "../../components/Header/Header";
 import Container from "../../components/Container/Container";
 import Footer from "../../components/Footer/Footer";
 import styles from "./Home.module.css";
+import Card from "../../components/Card/Card";
 
 function Home() {
   return (
     <>
       <Header />
       <Container>
-        <section className={styles.home}>
+        <section className={styles.presentation}>
           <div className={styles.logo}>
             <div className={`${styles.circle} ${styles.large_circle}`}></div>
             <div className={`${styles.circle} ${styles.medium_circle}`}></div>
@@ -30,8 +31,13 @@ function Home() {
               </a>
             </p>
           </div>
-          <button></button>
         </section>
+        <section className={styles.home}>
+          <button className={styles.btn_create_pool}>Criar novo Bolão</button>
+          <Card title="Bolão da Sorte" price="R$50,00" />
+          <Card title="Mega Sena" price="R$100,00" />
+        </section>
+
       </Container>
       <Footer />
     </>

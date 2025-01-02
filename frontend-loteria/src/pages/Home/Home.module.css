@@ -1,6 +1,8 @@
-.home {
+/*primeira section*/
+
+.presentation {
     width: 100%;
-    min-height: 100vh;
+    min-height: 90vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -98,3 +100,27 @@
     }
   }
   
+/*segunda section*/
+.home{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+
+.btn_create_pool {
+    padding: 20px;
+    font-size: 30px;
+    color: #ffff;
+    background-color: #874aff;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn_create_pool:hover {
+    background-color: var(--primary-color);
+}
