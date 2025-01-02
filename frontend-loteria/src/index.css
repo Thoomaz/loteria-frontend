@@ -22,6 +22,10 @@
   );
 }
 
+body {
+  background-color: #ecfaff;
+}
+
 * {
   margin: 0;
   padding: 0;
