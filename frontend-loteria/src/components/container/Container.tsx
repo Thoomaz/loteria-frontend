@@ -2,9 +2,9 @@ import style from "./Container.module.css"
 
 function Container({children}){
     return (
-        <div className={style.container}>
+        <section className={style.container}>
             {children}
-        </div>
+        </section>
     )    
 }
 
