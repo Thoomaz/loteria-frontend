@@ -3,22 +3,30 @@ import Container from "../../components/Container/Container";
 import Footer from "../../components/Footer/Footer";
 import styles from "./Home.module.css";
 import Card from "../../components/Card/Card";
+import { useState } from "react";
 
 function Home() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
   return (
     <>
       <Header />
       <Container>
         <section className={styles.presentation}>
           <div className={styles.logo}>
-            <div className={`${styles.circle} ${styles.large_circle}`}></div>
-            <div className={`${styles.circle} ${styles.medium_circle}`}></div>
-            <div className={`${styles.circle} ${styles.small_circle}`}></div>
-            <h1 className={`${styles.text_presentation} ${styles.title}`}>Loteria</h1>
+            <div className={`${styles.circle} ${styles.largeCircle}`}></div>
+            <div className={`${styles.circle} ${styles.mediumCircle}`}></div>
+            <div className={`${styles.circle} ${styles.smallCircle}`}></div>
+            <h1 className={`${styles.textPresentation} ${styles.title}`}>
+              Loteria
+            </h1>
           </div>
 
           <div className={styles.slogan}>
-            <p className={`${styles.text_presentation} ${styles.text}`}>
+            <p className={`${styles.textPresentation} ${styles.text}`}>
               agilize o processo <br />
               verifique seu bolão{" "}
               <a
@@ -33,11 +41,50 @@ function Home() {
           </div>
         </section>
         <section className={styles.home}>
-          <button className={styles.btn_create_pool}>Criar novo Bolão</button>
+          <button className={styles.btnCreatePool} onClick={openModal}>
+            Criar novo Bolão
+          </button>
           <Card title="Bolão da Sorte" price="R$50,00" />
           <Card title="Mega Sena" price="R$100,00" />
         </section>
 
+        {/*Modal*/}
+        {isModalOpen && (
+          <div className={styles.modal}>
+            <div className={styles.modalContent}>
+              <span className={styles.closeButton} onClick={closeModal}>
+                &times;
+              </span>
+              <h2 className={styles.titleModal}>Novo bolão</h2>
+              <label htmlFor="poolName" className={styles.labels}>
+                Nome do bolão:{" "}
+              </label>
+              <input
+                type="text"
+                id="poolName"
+                className={styles.poolName}
+                placeholder="ex: Bolão dos amigos"
+              />
+              <label htmlFor="lotteryChoice" className={styles.labels}>
+                Escolha uma opção:{" "}
+              </label>
+              <select
+                name="lotteryChoice"
+                id="lotteryChoice"
+                className={styles.lotteryChoice}
+              >
+                <option value="mega-sena" className={styles.lotteryOption}>
+                  Mega-sena
+                </option>
+                <option value="lotofacil" className={styles.lotteryOption}>
+                  Lotofácil
+                </option>
+              </select>
+
+              <button className={styles.saveButton}>Salvar</button>
+            </div>
+          </div>
+        )}
       </Container>
       <Footer />
     </>

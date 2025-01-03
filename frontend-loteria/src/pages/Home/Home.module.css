@@ -20,26 +20,26 @@
     background: var(--circles-color);
     position: absolute;
   }
-  .large_circle {
+  .largeCircle {
     width: 400px;
     height: 400px;
   }
   
-  .medium_circle {
+  .mediumCircle {
     width: 100px;
     height: 100px;
     top: 110px;
     left: 410px;
   }
   
-  .small_circle {
+  .smallCircle {
     width: 60px;
     height: 60px;
     top: 210px;
     left: 400px;
   }
   
-  .text_presentation {
+  .textPresentation {
     color: var(--primary-color);
     position: absolute;
   }
@@ -111,9 +111,10 @@
 }
 
 
-.btn_create_pool {
+.btnCreatePool {
     padding: 20px;
     font-size: 30px;
+    font-weight: bold;
     color: #ffff;
     background-color: #874aff;
     border-radius: 5px;
@@ -121,6 +122,88 @@
     cursor: pointer;
 }
 
-.btn_create_pool:hover {
+.btnCreatePool:hover {
     background-color: var(--primary-color);
 }
+
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modalContent {
+    background-color: var(--secondary-color);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 400px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .closeButton {
+    position: absolute;
+    top: 7px;
+    right: 11px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #666;
+  }
+  
+  .closeButton:hover {
+    color: #000;
+  }
+
+  .titleModal{
+    color: var(--primary-color);
+    font-size: 23px;
+  }
+  
+  .labels {
+    color: #666;
+    font-size: 15px;
+    text-align: left;
+  }
+
+  .poolName, .lotteryChoice {
+    padding: 10px;
+    font-size: 14px;
+    width: 100%; 
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+
+  .lotteryChoice:hover {
+    background-color: #ccc;
+    cursor: pointer;
+  }
+  
+
+  .saveButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+  }
+
+  .saveButton:hover {
+    background-color: #874aff; 
+  }
