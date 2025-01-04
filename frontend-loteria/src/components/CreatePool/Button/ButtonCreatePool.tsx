@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./ButtonCreatePool.module.css";
+import "./ButtonCreatePool.css";
 
 type ButtonCreatePoolProps = {
   onClick: () => void;
@@ -7,7 +7,7 @@ type ButtonCreatePoolProps = {
 
 const ButtonCreatePool: React.FC<ButtonCreatePoolProps> = ({ onClick }) => {
   return (
-    <button className={styles.btnCreatePool} onClick={onClick}>
+    <button className="btnCreatePool" onClick={onClick}>
       Criar novo Bolão
     </button>
   );

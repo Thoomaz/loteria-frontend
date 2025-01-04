@@ -1,8 +1,8 @@
 import Header from "../../components/Header/Header";
 import Container from "../../components/Container/Container";
 import Footer from "../../components/Footer/Footer";
-import styles from "./Home.module.css";
-import Card from "../../components/card/Card";
+import "./Home.css";
+import Card from "../../components/Card/Card";
 import ButtonCreatePool from "../../components/CreatePool/Button/ButtonCreatePool";
 import Modal from "../../components/CreatePool/Modal/Modal";
 import { useState } from "react";
@@ -17,32 +17,32 @@ function Home() {
     <>
       <Header />
       <Container>
-        <section className={styles.presentation}>
-          <div className={styles.logo}>
-            <div className={`${styles.circle} ${styles.largeCircle}`}></div>
-            <div className={`${styles.circle} ${styles.mediumCircle}`}></div>
-            <div className={`${styles.circle} ${styles.smallCircle}`}></div>
-            <h1 className={`${styles.textPresentation} ${styles.title}`}>
+        <section className="presentation">
+          <div className="logo">
+            <div className="circle largeCircle"></div>
+            <div className="circle mediumCircle"></div>
+            <div className="circle smallCircle"></div>
+            <h1 className="textPresentation title">
               Loteria
             </h1>
           </div>
 
-          <div className={styles.slogan}>
-            <p className={`${styles.textPresentation} ${styles.text}`}>
+          <div className="slogan">
+            <p className="textPresentation text">
               agilize o processo <br />
               verifique seu bolão{" "}
               <a
                 href="https://youtu.be/dQw4w9WgXcQ?si=mxaXf9FK-tcH9S7E"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={styles.highlight}
+                className="highlight"
               >
                 AQUI
               </a>
             </p>
           </div>
         </section>
-        <section className={styles.home}>
+        <section className="home">
           <ButtonCreatePool onClick={openModal} />
           <Card title="Bolão da Sorte" price="R$50,00" />
           <Card title="Mega Sena" price="R$100,00" />
