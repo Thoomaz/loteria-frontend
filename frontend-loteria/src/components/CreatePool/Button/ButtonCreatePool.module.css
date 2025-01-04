@@ -1,0 +1,14 @@
+.btnCreatePool {
+    padding: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #ffff;
+    background-color: #874aff;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.btnCreatePool:hover {
+    background-color: var(--primary-color);
+}

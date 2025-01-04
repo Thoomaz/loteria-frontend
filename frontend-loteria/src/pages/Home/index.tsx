@@ -2,7 +2,9 @@ import Header from "../../components/Header/Header";
 import Container from "../../components/Container/Container";
 import Footer from "../../components/Footer/Footer";
 import styles from "./Home.module.css";
-import Card from "../../components/Card/Card";
+import Card from "../../components/card/Card";
+import ButtonCreatePool from "../../components/CreatePool/Button/ButtonCreatePool";
+import Modal from "../../components/CreatePool/Modal/Modal";
 import { useState } from "react";
 
 function Home() {
@@ -41,50 +43,11 @@ function Home() {
           </div>
         </section>
         <section className={styles.home}>
-          <button className={styles.btnCreatePool} onClick={openModal}>
-            Criar novo Bolão
-          </button>
+          <ButtonCreatePool onClick={openModal} />
           <Card title="Bolão da Sorte" price="R$50,00" />
           <Card title="Mega Sena" price="R$100,00" />
         </section>
-
-        {/*Modal*/}
-        {isModalOpen && (
-          <div className={styles.modal}>
-            <div className={styles.modalContent}>
-              <span className={styles.closeButton} onClick={closeModal}>
-                &times;
-              </span>
-              <h2 className={styles.titleModal}>Novo bolão</h2>
-              <label htmlFor="poolName" className={styles.labels}>
-                Nome do bolão:{" "}
-              </label>
-              <input
-                type="text"
-                id="poolName"
-                className={styles.poolName}
-                placeholder="ex: Bolão dos amigos"
-              />
-              <label htmlFor="lotteryChoice" className={styles.labels}>
-                Escolha uma opção:{" "}
-              </label>
-              <select
-                name="lotteryChoice"
-                id="lotteryChoice"
-                className={styles.lotteryChoice}
-              >
-                <option value="mega-sena" className={styles.lotteryOption}>
-                  Mega-sena
-                </option>
-                <option value="lotofacil" className={styles.lotteryOption}>
-                  Lotofácil
-                </option>
-              </select>
-
-              <button className={styles.saveButton}>Salvar</button>
-            </div>
-          </div>
-        )}
+        <Modal isOpen={isModalOpen} onClose={closeModal} />
       </Container>
       <Footer />
     </>
