@@ -1,11 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
+import axios, {AxiosPromise } from "axios";
 import { PoolData} from "../interfaces/pool-data";
 
 const API_URL = 'http://localhost:8080'
 
-const fetchData = async () => {
-    const response = await axios.get<PoolData>(API_URL + '/pool_megasena');
+const fetchData = async (): AxiosPromise<PoolData[]> => {
+    const response = await axios.get<PoolData[]>(API_URL + '/pool_megasena');
     return response;
 }
 

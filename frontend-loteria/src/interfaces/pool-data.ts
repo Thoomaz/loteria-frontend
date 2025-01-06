@@ -1,5 +1,5 @@
 export interface PoolData {
     id: number,
-    name: string,
+    title: string,
     valueTotal: number
 }

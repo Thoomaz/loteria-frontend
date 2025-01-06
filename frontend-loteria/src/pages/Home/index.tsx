@@ -51,7 +51,7 @@ function Home() {
             data?.map((item) => (
               <Card
                 key={item.id}
-                title={item.name}
+                title={item.title}
                 price={item.valueTotal}
                 id={item.id}
               />
