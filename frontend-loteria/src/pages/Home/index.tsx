@@ -1,4 +1,4 @@
-import Header from "../../components/header/Header"
+import Header from "../../components/header/Header";
 import Container from "../../components/container/Container";
 import Footer from "../../components/Footer/Footer";
 import styles from "./Home.module.css";
@@ -12,7 +12,7 @@ function Home() {
   const { data } = cardsData();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
- 
+
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
@@ -48,12 +48,15 @@ function Home() {
         <section className={styles.home}>
           <ButtonCreatePool onClick={openModal} />
           {
-              data?.data.map(data => (
-              <Card 
-                title={data.name}
-                price={data.valueTotal}
-                id={data.id}/>
+            data?.map((item) => (
+              <Card
+                key={item.id}
+                title={item.name}
+                price={item.valueTotal}
+                id={item.id}
+              />
             ))
+          
           }
         </section>
         <Modal isOpen={isModalOpen} onClose={closeModal} />

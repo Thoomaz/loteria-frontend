@@ -3,7 +3,3 @@ export interface PoolData {
     name: string,
     valueTotal: number
 }
-
-export interface PoolResponse {
-    data: PoolData[]
-}
