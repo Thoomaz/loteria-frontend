@@ -12,11 +12,6 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
 
   if (!isOpen) return null;
 
-  const handleSave = () => {
-    console.log("Bolão salvo:", { poolName, lotteryChoice });
-    onClose();
-  };
-
   return (
     <div className={styles.modal}>
       <div className={styles.modalContent}>
@@ -25,35 +20,30 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
         </span>
         <h2 className={styles.titleModal}>Novo bolão</h2>
         <label htmlFor="poolName" className={styles.labels}>
-          Nome do bolão:{" "}
+        Nome do bolão:{" "}
         </label>
         <input
-          type="text"
-          id="poolName"
-          className={styles.poolName}
-          placeholder="ex: Bolão dos amigos"
-          value={poolName}
-          onChange={(e) => setPoolName(e.target.value)}
+        type="text"
+        id="poolName"
+        className={styles.poolName}
+        placeholder="ex: Bolão dos amigos"
         />
         <label htmlFor="lotteryChoice" className={styles.labels}>
-          Escolha uma opção:{" "}
+        Escolha uma opção:{" "}
         </label>
         <select
-          name="lotteryChoice"
-          id="lotteryChoice"
-          className={styles.lotteryChoice}
-          value={lotteryChoice}
-          onChange={(e) => setLotteryChoice(e.target.value)}
+        name="lotteryChoice"
+        id="lotteryChoice"
+        className={styles.lotteryChoice}
         >
-          <option value="mega-sena" className={styles.lotteryOption}>
+        <option value="mega-sena" className={styles.lotteryOption}>
             Mega-sena
-          </option>
-          <option value="lotofacil" className={styles.lotteryOption}>
+        </option>
+        <option value="lotofacil" className={styles.lotteryOption}>
             Lotofácil
-          </option>
+        </option>
         </select>
-
-        <button className={styles.saveButton} onClick={handleSave}>
+        <button className={styles.saveButton}>
           Salvar
         </button>
       </div>

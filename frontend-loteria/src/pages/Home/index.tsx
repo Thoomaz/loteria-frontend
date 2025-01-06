@@ -1,15 +1,18 @@
-import Header from "../../components/Header/Header";
-import Container from "../../components/Container/Container";
+import Header from "../../components/header/Header"
+import Container from "../../components/container/Container";
 import Footer from "../../components/Footer/Footer";
 import styles from "./Home.module.css";
 import Card from "../../components/card/Card";
 import ButtonCreatePool from "../../components/CreatePool/Button/ButtonCreatePool";
 import Modal from "../../components/CreatePool/Modal/Modal";
 import { useState } from "react";
+import { cardsData } from "../../hooks/CardsData";
 
 function Home() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { data } = cardsData();
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+ 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
@@ -44,8 +47,14 @@ function Home() {
         </section>
         <section className={styles.home}>
           <ButtonCreatePool onClick={openModal} />
-          <Card title="Bolão da Sorte" price="R$50,00" />
-          <Card title="Mega Sena" price="R$100,00" />
+          {
+              data?.data.map(data => (
+              <Card 
+                title={data.name}
+                price={data.valueTotal}
+                id={data.id}/>
+            ))
+          }
         </section>
         <Modal isOpen={isModalOpen} onClose={closeModal} />
       </Container>
