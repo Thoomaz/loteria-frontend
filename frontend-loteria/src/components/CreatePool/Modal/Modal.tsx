@@ -1,6 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from "react";
-import styles from "./Modal.module.css";
+import styles from "./Modal.module.css"
 import { createPool } from "../../../hooks/CreatePool";
 import { PoolInput } from "../../../interfaces/pool-input";
 import { useQueryClient } from "@tanstack/react-query";

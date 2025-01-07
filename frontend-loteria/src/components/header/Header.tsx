@@ -1,5 +1,5 @@
 import "./Header.css";
-import Tutorial from "../Tutorial/Tutorial";
+import Tutorial from "../tutorial/Tutorial";
 import { Link } from "react-router-dom";
 
 function Header() {

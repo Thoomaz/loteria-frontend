@@ -18,3 +18,8 @@
   font-family: Geneva, sans-serif;
   color: rgb(115, 115, 115);
 }
+
+.cardLink {
+  text-decoration: none;
+  color: inherit;
+}
