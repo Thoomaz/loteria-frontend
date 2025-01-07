@@ -1,5 +1,6 @@
 import React from 'react';
-import "./Card.css" // Assuming you have a CSS module for styling
+import "./Card.css"
+import { Link } from 'react-router-dom';
 
 interface CardProps {
   id: number
@@ -9,12 +10,14 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ title, price}) => {
   return (
-    <div className="card">
-      <div className="cardContent">
-        <h2 className="cardTitle">{title}</h2>
-        <p className="cardPrice">{price}</p>
+    <Link to={"/"+title} className='cardLink'>
+      <div className="card">
+        <div className="cardContent">
+          <h2 className="cardTitle">{title}</h2>
+          <p className="cardPrice">{price}</p>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
