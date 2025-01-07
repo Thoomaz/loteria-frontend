@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import styles from "./Modal.module.css"
+import styles from "./Modal.module.css";
 import { createPool } from "../../../hooks/CreatePool";
 import { PoolInput } from "../../../interfaces/pool-input";
 import { useQueryClient } from "@tanstack/react-query";
+import Loader from "../../Loader/Loader";
 
 type ModalProps = {
   isOpen: boolean;
@@ -12,11 +13,14 @@ type ModalProps = {
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
   const [title, setPoolName] = useState("");
   const [lotteryChoice, setLotteryChoice] = useState("mega-sena");
+  const [loading, setLoading] = useState(false);
   const queryClient = useQueryClient();
 
   const { mutate } = createPool();
 
   const handleSubmit = () => {
+    setLoading(true);
+
     const data: PoolInput = {
       title,
     };
@@ -24,10 +28,12 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
     mutate(data, {
       onSuccess: () => {
         queryClient.invalidateQueries();
+        setLoading(false);
         onClose();
       },
       onError: (error) => {
         console.error("Erro ao criar o bolão:", error);
+        setLoading(false);
       },
     });
   };
@@ -41,41 +47,47 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
           &times;
         </span>
         <h2 className={styles.titleModal}>Novo bolão</h2>
-        <label htmlFor="poolName" className={styles.labels}>
-          Nome do bolão:{" "}
-        </label>
-        <input
-          type="text"
-          id="poolName"
-          className={styles.poolName}
-          placeholder="ex: Bolão dos amigos"
-          value={title}
-          onChange={(e) => setPoolName(e.target.value)}
-        />
-        <label htmlFor="lotteryChoice" className={styles.labels}>
-          Escolha uma opção:{" "}
-        </label>
-        <select
-          name="lotteryChoice"
-          id="lotteryChoice"
-          className={styles.lotteryChoice}
-          value={lotteryChoice}
-          onChange={(e) => setLotteryChoice(e.target.value)}
-        >
-          <option value="mega-sena" className={styles.lotteryOption}>
-            Mega-sena
-          </option>
-          <option value="lotofacil" className={styles.lotteryOption}>
-            Lotofácil
-          </option>
-        </select>
-        <button className={styles.saveButton} onClick={handleSubmit}>
-          Salvar
-        </button>
+
+        {loading ? (
+          <Loader />
+        ) : (
+          <>
+            <label htmlFor="poolName" className={styles.labels}>
+              Nome do bolão:{" "}
+            </label>
+            <input
+              type="text"
+              id="poolName"
+              className={styles.poolName}
+              placeholder="ex: Bolão dos amigos"
+              value={title}
+              onChange={(e) => setPoolName(e.target.value)}
+            />
+            <label htmlFor="lotteryChoice" className={styles.labels}>
+              Escolha uma opção:{" "}
+            </label>
+            <select
+              name="lotteryChoice"
+              id="lotteryChoice"
+              className={styles.lotteryChoice}
+              value={lotteryChoice}
+              onChange={(e) => setLotteryChoice(e.target.value)}
+            >
+              <option value="mega-sena" className={styles.lotteryOption}>
+                Mega-sena
+              </option>
+              <option value="lotofacil" className={styles.lotteryOption}>
+                Lotofácil
+              </option>
+            </select>
+            <button className={styles.saveButton} onClick={handleSubmit}>
+              Salvar
+            </button>
+          </>
+        )}
       </div>
     </div>
   );
 };
 
 export default Modal;
-
