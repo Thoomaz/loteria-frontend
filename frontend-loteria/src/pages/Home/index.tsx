@@ -1,20 +1,28 @@
-import Header from "../../components/header/Header";
-import Container from "../../components/container/Container";
+import Header from "../../components/Header/Header";
+import Container from "../../components/Container/Container";
 import Footer from "../../components/Footer/Footer";
 import "./Home.css";
 import Card from "../../components/card/Card";
 import ButtonCreatePool from "../../components/CreatePool/Button/ButtonCreatePool";
 import Modal from "../../components/CreatePool/Modal/Modal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { cardsData } from "../../hooks/CardsData";
+import Loader from "../../components/Loader/Loader";
 
 function Home() {
   const { data } = cardsData();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [loading, setLoading] =useState(true);
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
+
+  useEffect(() => {
+    if (data) {
+      setLoading(false);
+    }
+  }, [data]);
 
   return (
     <>
@@ -47,7 +55,10 @@ function Home() {
         </section>
         <section className="home">
           <ButtonCreatePool onClick={openModal} />
-          {
+
+          {loading ? (
+            <Loader/>
+          ) : (
             data?.map((item) => (
               <Card
                 key={item.id}
@@ -56,8 +67,7 @@ function Home() {
                 id={item.id}
               />
             ))
-          
-          }
+          )}
         </section>
         <Modal isOpen={isModalOpen} onClose={closeModal} />
       </Container>
