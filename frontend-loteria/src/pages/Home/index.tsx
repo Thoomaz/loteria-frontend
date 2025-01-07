@@ -2,7 +2,7 @@ import Header from "../../components/header/Header";
 import Container from "../../components/container/Container";
 import Footer from "../../components/Footer/Footer";
 import "./Home.css";
-import Card from "../../components/Card/Card";
+import Card from "../../components/card/Card";
 import ButtonCreatePool from "../../components/CreatePool/Button/ButtonCreatePool";
 import Modal from "../../components/CreatePool/Modal/Modal";
 import { useState } from "react";
