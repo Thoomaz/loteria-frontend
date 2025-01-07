@@ -11,10 +11,11 @@ type ModalProps = {
 
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
   const [title, setPoolName] = useState("");
+  const [lotteryChoice, setLotteryChoice] = useState("mega-sena");
   const queryClient = useQueryClient();
-  
+
   const { mutate } = createPool();
-  
+
   const handleSubmit = () => {
     const data: PoolInput = {
       title,
@@ -24,11 +25,15 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
       onSuccess: () => {
         queryClient.invalidateQueries();
         onClose();
-      }})
-  
-  }
-  
+      },
+      onError: (error) => {
+        console.error("Erro ao criar o bolão:", error);
+      },
+    });
+  };
+
   if (!isOpen) return null;
+
   return (
     <div className={styles.modal}>
       <div className={styles.modalContent}>
@@ -37,31 +42,34 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
         </span>
         <h2 className={styles.titleModal}>Novo bolão</h2>
         <label htmlFor="poolName" className={styles.labels}>
-        Nome do bolão:{""}
+          Nome do bolão:{" "}
         </label>
         <input
-        type="text"
-        id="poolName"
-        className={styles.poolName}
-        placeholder="ex: Bolão dos amigos"
-        onChange={(e) => setPoolName(e.target.value)}
+          type="text"
+          id="poolName"
+          className={styles.poolName}
+          placeholder="ex: Bolão dos amigos"
+          value={title}
+          onChange={(e) => setPoolName(e.target.value)}
         />
         <label htmlFor="lotteryChoice" className={styles.labels}>
-        Escolha uma opção:{" "}
+          Escolha uma opção:{" "}
         </label>
         <select
-        name="lotteryChoice"
-        id="lotteryChoice"
-        className={styles.lotteryChoice}
+          name="lotteryChoice"
+          id="lotteryChoice"
+          className={styles.lotteryChoice}
+          value={lotteryChoice}
+          onChange={(e) => setLotteryChoice(e.target.value)}
         >
-        <option value="mega-sena" className={styles.lotteryOption}>
+          <option value="mega-sena" className={styles.lotteryOption}>
             Mega-sena
-        </option>
-        <option value="lotofacil" className={styles.lotteryOption}>
+          </option>
+          <option value="lotofacil" className={styles.lotteryOption}>
             Lotofácil
-        </option>
+          </option>
         </select>
-        <button className={styles.saveButton} onClick={handleSubmit} >
+        <button className={styles.saveButton} onClick={handleSubmit}>
           Salvar
         </button>
       </div>
@@ -69,5 +77,5 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
   );
 };
 
-export default Modal; 
+export default Modal;
 
