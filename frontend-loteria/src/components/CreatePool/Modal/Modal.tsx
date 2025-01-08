@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./Modal.module.css";
 import { createPool } from "../../../hooks/CreatePool";
 import { PoolInput } from "../../../interfaces/pool-input";
@@ -12,28 +12,31 @@ type ModalProps = {
 
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
   const [title, setPoolName] = useState("");
-  const [lotteryChoice, setLotteryChoice] = useState("mega-sena");
-  const [loading, setLoading] = useState(false);
+  const [type, setLotteryChoice] = useState("Mega-Sena");
   const queryClient = useQueryClient();
 
-  const { mutate } = createPool();
+  const { mutate, isPending } = createPool();
+
+  useEffect(() => {
+    if (isOpen) {
+      setPoolName(""); // Limpa o campo de título ao abrir o modal
+      setLotteryChoice("Mega-Sena")
+    }
+  }, [isOpen]);
 
   const handleSubmit = () => {
-    setLoading(true);
-
     const data: PoolInput = {
       title,
+      type
     };
 
     mutate(data, {
       onSuccess: () => {
-        queryClient.invalidateQueries();
-        setLoading(false);
-        onClose();
+        queryClient.invalidateQueries(); // Atualiza os dados em cache
+        onClose(); // Fecha o modal
       },
       onError: (error) => {
         console.error("Erro ao criar o bolão:", error);
-        setLoading(false);
       },
     });
   };
@@ -48,7 +51,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
         </span>
         <h2 className={styles.titleModal}>Novo bolão</h2>
 
-        {loading ? (
+        {isPending ? (
           <Loader />
         ) : (
           <>
@@ -70,13 +73,13 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
               name="lotteryChoice"
               id="lotteryChoice"
               className={styles.lotteryChoice}
-              value={lotteryChoice}
+              value={type}
               onChange={(e) => setLotteryChoice(e.target.value)}
             >
-              <option value="mega-sena" className={styles.lotteryOption}>
+              <option value="Mega-Sena" className={styles.lotteryOption}>
                 Mega-sena
               </option>
-              <option value="lotofacil" className={styles.lotteryOption}>
+              <option value="Lotofácil" className={styles.lotteryOption}>
                 Lotofácil
               </option>
             </select>

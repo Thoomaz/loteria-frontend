@@ -1,5 +1,5 @@
-import Header from "../../components/Header/Header";
-import Container from "../../components/Container/Container";
+import Header from "../../components/header/Header";
+import Container from "../../components/container/Container";
 import Footer from "../../components/Footer/Footer";
 import "./Home.css";
 import Card from "../../components/card/Card";
@@ -69,6 +69,7 @@ function Home() {
               <Card
                 key={item.id}
                 title={item.title}
+                type={item.type}
                 price={item.valueTotal}
                 id={item.id}
               />
