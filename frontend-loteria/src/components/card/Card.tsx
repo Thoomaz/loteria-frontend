@@ -15,7 +15,7 @@ const Card: React.FC<CardProps> = ({ title, type ,price}) => {
       <div className="card">
         <div className="cardContent">
           <h2 className="cardTitle">{title}</h2>
-          <h3>{type}</h3>
+          <p className="cardType">{type}</p>
           <p className="cardPrice">{price}</p>
         </div>
       </div>

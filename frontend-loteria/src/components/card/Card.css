@@ -12,11 +12,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
 .card p {
   font-family: Geneva, sans-serif;
   color: rgb(115, 115, 115);
+}
+
+.cardType {
+  position: absolute;
+  left: 400px;
 }
 
 .cardLink {
