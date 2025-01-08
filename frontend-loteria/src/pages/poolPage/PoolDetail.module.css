@@ -7,11 +7,31 @@
   padding: 20px;
 }
 
-.poolTitle {
+.poolLogoAndPoolType {
   align-self: flex-start;
-  color: var(--primary-color);
-  font-size: 60px;
-  font-weight: bold;
+  display: flex;
+  align-items: center;
   margin-left: 30px;
-  margin-bottom: 70px;
+  margin-bottom: 60px;
+  gap: 30px;
+}
+
+.poolLogo{
+  width: 65px;
+  height: 65px;
+}
+
+.poolType {
+  font-size: 60px;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.poolTitle {
+  font-size: 30px;
+  color: #848383;
+  align-self: flex-start;
+  margin-left: 125px;
+  margin-bottom: 25px;
+  font-weight: normal;
 }

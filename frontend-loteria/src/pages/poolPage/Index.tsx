@@ -23,9 +23,12 @@ const Page: React.FC = () => {
         <Header />
         <Container>
           <section className={styles.poolContainer}>
+            <div className={styles.poolLogoAndPoolType}>
+              <img src="/icon.svg" alt="Logo" className={styles.poolLogo} />
+              <h1 className={styles.poolType}>{type}</h1>
+            </div>
             <h1 className={styles.poolTitle}>{title}</h1>
             <p>ID: {id}</p>
-            <p>Type: {type}</p>
             <p>Price: {price}</p>
           </section>
         </Container>
