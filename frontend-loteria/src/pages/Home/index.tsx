@@ -1,13 +1,13 @@
 import Header from "../../components/header/Header";
 import Container from "../../components/container/Container";
-import Footer from "../../components/Footer/Footer";
+import Footer from "../../components/footer/Footer";
 import "./Home.css";
 import Card from "../../components/card/Card";
-import ButtonCreatePool from "../../components/CreatePool/Button/ButtonCreatePool";
-import Modal from "../../components/CreatePool/Modal/Modal";
+import ButtonCreatePool from "../../components/buttonCreatePool/ButtonCreatePool";
+import Modal from "../../components/modal/Modal";
 import { useEffect, useState } from "react";
 import { cardsData } from "../../hooks/CardsData";
-import Loader from "../../components/Loader/Loader";
+import Loader from "../../components/loader/Loader";
 
 function Home() {
   const { data } = cardsData();

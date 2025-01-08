@@ -1,5 +1,5 @@
 import Container from "../../components/Container/Container";
-import Footer from "../../components/Footer/Footer";
+import Footer from "../../components/footer/Footer";
 import Header from "../../components/Header/Header";
 
 function Megasena() {

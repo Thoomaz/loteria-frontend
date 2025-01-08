@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Modal.module.css";
-import { createPool } from "../../../hooks/CreatePool";
-import { PoolInput } from "../../../interfaces/pool-input";
+import { createPool } from "../../hooks/CreatePool";
+import { PoolInput } from "../../interfaces/pool-input";
 import { useQueryClient } from "@tanstack/react-query";
-import Loader from "../../Loader/Loader";
+import Loader from "../loader/Loader";
 
 type ModalProps = {
   isOpen: boolean;

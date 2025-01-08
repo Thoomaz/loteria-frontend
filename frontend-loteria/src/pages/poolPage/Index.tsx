@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
-import Container from "../Container/Container";
+import Header from "../../components/header/Header";
+import Footer from "../../components/footer/Footer";
+import Container from "../../components/container/Container";
 import styles from "./PoolDetail.module.css";
 
 const Page: React.FC = () => {

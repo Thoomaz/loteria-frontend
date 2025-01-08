@@ -1,8 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
-import Lotofacil from "./pages/Lotofacil";
-import Megasena from "./pages/Megasena";
-import Page from "./components/PoolPage";
+import Home from "./pages/home";
+import Lotofacil from "./pages/lotofacil";
+import Megasena from "./pages/megasena";
+import Page from "./pages/poolPage/Index";
 
 function AppRoutes(){
     return (
