@@ -3,6 +3,7 @@ import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import Container from "../../components/container/Container";
 import styles from "./PoolDetail.module.css";
+import AddingGames from "../../components/addingGames/AddingGames";
 
 interface CardsState {
   id: number;
@@ -30,6 +31,7 @@ const Page: React.FC = () => {
             <h1 className={styles.poolTitle}>{title}</h1>
             <p>ID: {id}</p>
             <p>Price: {price}</p>
+            <AddingGames />
           </section>
         </Container>
         <Footer />
