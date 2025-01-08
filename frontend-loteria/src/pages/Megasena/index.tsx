@@ -1,6 +1,6 @@
-import Container from "../../components/Container/Container";
+import Container from "../../components/container/Container";
 import Footer from "../../components/footer/Footer";
-import Header from "../../components/Header/Header";
+import Header from "../../components/header/Header";
 
 function Megasena() {
   return (

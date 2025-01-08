@@ -15,9 +15,13 @@
   position: relative;
 }
 
-.card p {
-  font-family: Geneva, sans-serif;
+.cardTitle  {
   color: rgb(115, 115, 115);
+}
+
+.card p {
+  color: rgb(115, 115, 115);
+  font-family: DejaVu sans Mono, monospace;
 }
 
 .cardType {
