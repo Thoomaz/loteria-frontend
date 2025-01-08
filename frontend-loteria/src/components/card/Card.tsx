@@ -5,15 +5,17 @@ import { Link } from 'react-router-dom';
 interface CardProps {
   id: number
   title: string;
+  type: string;
   price: number;
 }
 
-const Card: React.FC<CardProps> = ({ title, price}) => {
+const Card: React.FC<CardProps> = ({ title, type ,price}) => {
   return (
     <Link to={"/"+title} className='cardLink'>
       <div className="card">
         <div className="cardContent">
           <h2 className="cardTitle">{title}</h2>
+          <h3>{type}</h3>
           <p className="cardPrice">{price}</p>
         </div>
       </div>

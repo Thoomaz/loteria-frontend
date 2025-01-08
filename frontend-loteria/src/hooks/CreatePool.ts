@@ -7,7 +7,7 @@ import { PoolInput } from "../interfaces/pool-input";
 const API_URL = 'http://localhost:8080'
 
 const postData = async (data: PoolInput): AxiosPromise<any> => {
-    const response = await axios.post<any>(API_URL + '/pool_megasena/create', data);
+    const response = await axios.post<any>(API_URL + '/pool/create', data);
     return response;
 }
 
