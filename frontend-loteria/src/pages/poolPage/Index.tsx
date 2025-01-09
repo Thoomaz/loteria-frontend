@@ -4,6 +4,7 @@ import Footer from "../../components/footer/Footer";
 import Container from "../../components/container/Container";
 import styles from "./PoolDetail.module.css";
 import AddingGames from "../../components/addingGames/AddingGames";
+import BetsTable from "../../components/betTable/BetTable";
 
 interface CardsState {
   id: number;
@@ -29,6 +30,7 @@ const Page: React.FC = () => {
               <h1 className={styles.poolType}>{type}</h1>
             </div>
             <h1 className={styles.poolTitle}>{title}</h1>
+            <BetsTable/>
             <p>ID: {id}</p>
             <p>Price: {price}</p>
             <AddingGames />
