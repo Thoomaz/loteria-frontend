@@ -14,31 +14,32 @@ interface CardsState {
 }
 
 const Page: React.FC = () => {
-    const { title } = useParams<{title: string}>();
-    const location = useLocation();
-    const state = location.state as CardsState;
+  const { title } = useParams<{ title: string }>();
+  const location = useLocation();
+  const state = location.state as CardsState;
 
-    const { id, type, price } = state
+  const { id, type, price } = state;
 
-    return (
-      <>
-        <Header />
-        <Container>
-          <section className={styles.poolContainer}>
-            <div className={styles.poolLogoAndPoolType}>
-              <img src="/icon.svg" alt="Logo" className={styles.poolLogo} />
-              <h1 className={styles.poolType}>{type}</h1>
-            </div>
-            <h1 className={styles.poolTitle}>{title}</h1>
-            <BetsTable/>
-            <p>ID: {id}</p>
-            <p>Price: {price}</p>
-            <AddingGames />
-          </section>
-        </Container>
-        <Footer />
-      </>
-    );
-}
+  return (
+    <>
+      <Header />
+      <Container>
+        <section className={styles.poolContainer}>
+          <div className={styles.poolLogoAndPoolType}>
+            <img src="/icon.svg" alt="Logo" className={styles.poolLogo} />
+            <h1 className={styles.poolType}>{type}</h1>
+          </div>
+          <h1 className={styles.poolTitle}>{title}</h1>
+          <BetsTable />
+          <p>ID: {id}</p>
+          <p>Price: {price}</p>
+          {/* Passando o type para o componente AddingGames */}
+          <AddingGames gameType={type} />
+        </section>
+      </Container>
+      <Footer />
+    </>
+  );
+};
 
 export default Page;

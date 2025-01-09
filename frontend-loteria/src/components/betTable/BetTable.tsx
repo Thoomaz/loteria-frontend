@@ -1,8 +1,8 @@
-import "./BetTabel.css"
 import React from "react";
+import { useTable, Column } from "react-table";
 import { useQuery } from "@tanstack/react-query";
-import { getCoreRowModel, useReactTable, ColumnDef } from "@tanstack/react-table";
 import axios from "axios";
+import "./BetTabel.css"
 
 // Modelo de dados esperado
 interface BetData {
@@ -20,29 +20,37 @@ const fetchBets = async (): Promise<BetData[]> => {
 };
 
 const BetsTable: React.FC = () => {
-  const { data, isLoading, isError } = useQuery({
+  const { data = [], isLoading, isError } = useQuery<BetData[]>({
     queryKey: ["bets"],
     queryFn: fetchBets,
   });
 
   // Definindo colunas
-  const columns: ColumnDef<BetData>[] = [
-    {
-      accessorKey: "bet",
-      header: "Jogos",
-      cell: (info) => info.getValue()
-    },
-    {
-      accessorKey: "matched",
-      header: "Acertos",
-    },
-  ];
+  const columns: Column<BetData>[] = React.useMemo(
+    () => [
+      {
+        Header: "Bet",
+        accessor: "bet",
+        Cell: ({ value }) => (Array.isArray(value) ? value.join(" ") : value),
+      },
+      {
+        Header: "Matched",
+        accessor: "matched",
+      },
+    ],
+    []
+  );
 
-  // Criando a tabela
-  const table = useReactTable({
-    data: data || [],
+  // Criando a instância da tabela
+  const {
+    getTableProps,
+    getTableBodyProps,
+    headerGroups,
+    rows,
+    prepareRow,
+  } = useTable({
     columns,
-    getCoreRowModel: getCoreRowModel(),
+    data,
   });
 
   if (isLoading) return <div>Carregando...</div>;
@@ -50,28 +58,37 @@ const BetsTable: React.FC = () => {
 
   return (
     <div>
-      <table>
+      <table {...getTableProps()} style={{ border: "1px solid black", width: "100%" }}>
         <thead>
-          {table.getHeaderGroups().map((headerGroup) => (
-            <tr key={headerGroup.id}>
-              {headerGroup.headers.map((header) => (
-                <th key={header.id}>
-                  {header.column.columnDef.header?.toString.name}
+          {headerGroups.map((headerGroup) => (
+            <tr {...headerGroup.getHeaderGroupProps()} key={headerGroup.id}>
+              {headerGroup.headers.map((column) => (
+                <th
+                  {...column.getHeaderProps()}
+                  style={{ border: "1px solid black", padding: "5px" }}
+                >
+                  {column.render("Header")}
                 </th>
               ))}
             </tr>
           ))}
         </thead>
-        <tbody>
-          {table.getRowModel().rows.map((row) => (
-            <tr key={row.id}>
-              {row.getVisibleCells().map((cell) => (
-                <td key={cell.id}>
-                  {String(cell.getValue())}
-                </td>
-              ))}
-            </tr>
-          ))}
+        <tbody {...getTableBodyProps()}>
+          {rows.map((row) => {
+            prepareRow(row);
+            return (
+              <tr {...row.getRowProps()} key={row.id}>
+                {row.cells.map((cell) => (
+                  <td
+                    {...cell.getCellProps()}
+                    style={{ border: "1px solid black", padding: "5px" }}
+                  >
+                    {cell.render("Cell")}
+                  </td>
+                ))}
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>
