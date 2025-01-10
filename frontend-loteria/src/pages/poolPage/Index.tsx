@@ -16,9 +16,9 @@ interface CardsState {
 const Page: React.FC = () => {
   const { title } = useParams<{ title: string }>();
   const location = useLocation();
-  const state = location.state as CardsState;
+  const state = location.state as CardsState | null;
 
-  const { id, type, price } = state;
+  const { id = 0, type, price } = state || { id: 0, type: "defaultType", price: 0 };
 
   return (
     <>
@@ -30,10 +30,9 @@ const Page: React.FC = () => {
             <h1 className={styles.poolType}>{type}</h1>
           </div>
           <h1 className={styles.poolTitle}>{title}</h1>
-          <BetsTable />
+          <BetsTable id={id} />
           <p>ID: {id}</p>
           <p>Price: {price}</p>
-          {/* Passando o type para o componente AddingGames */}
           <AddingGames gameType={type} />
         </section>
       </Container>
