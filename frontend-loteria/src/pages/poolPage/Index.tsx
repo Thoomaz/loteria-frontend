@@ -30,9 +30,11 @@ const Page: React.FC = () => {
             <h1 className={styles.poolType}>{type}</h1>
           </div>
           <h1 className={styles.poolTitle}>{title}</h1>
-          <BetsTable id={id} />
-          <p>ID: {id}</p>
-          <p>Price: {price}</p>
+          <div className={styles.tableContainer}>
+            <BetsTable id={id} />
+            <p>ID: {id}</p>
+            <h3 className={styles.totalPrice}>Valor Investido: {price}</h3>
+          </div>
           <AddingGames gameType={type} />
         </section>
       </Container>

@@ -2,7 +2,8 @@ import React from "react";
 import { useTable, Column } from "react-table";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import "./BetTabel.css";
+import "./BetTable.css";
+import Loader from "../loader/Loader";
 
 interface BetData {
   id: number;
@@ -57,7 +58,7 @@ const BetsTable: React.FC<BetTabelProp> = ({ id }) => {
       data,
     });
 
-  if (isLoading) return <div>Carregando...</div>;
+  if (isLoading) return <Loader />;
   if (isError) return <div>Erro ao carregar os dados.</div>;
 
   return (
