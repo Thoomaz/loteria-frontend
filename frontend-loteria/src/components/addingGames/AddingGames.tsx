@@ -4,25 +4,36 @@ import ButtonAdding from "../buttonAdding/ButtonAdding";
 
 interface AddingGamesProps {
   gameType: string;
+  actionType: string;
 }
 
-function AddingGames({ gameType }: AddingGamesProps) {
+function AddingGames({ gameType, actionType }: AddingGamesProps) {
   const [clickedButtons, setClickedButtons] = useState<number[]>([]);
 
-  // Determina o número de botões com base no tipo do jogo
   const totalButtons = gameType === "Mega-Sena" ? 60 : gameType === "Lotofácil" ? 25 : 0;
-  const maxSelections = 20; // Limite de seleções
+
+  let minSelections = 6;
+  let maxSelections = 20;
+
+  if (gameType === "Mega-Sena" && actionType === "Contest") {
+    minSelections = 6;
+    maxSelections = 6;
+  } else if (gameType === "Lotofácil" && actionType === "Bet") {
+    minSelections = 15;
+    maxSelections = 20;
+  } else if (gameType === "Lotofácil" && actionType === "Contest") {
+    minSelections = 15;
+    maxSelections = 15;
+  }
+
 
   const handleClick = (number: number) => {
     setClickedButtons((prev) => {
       if (prev.includes(number)) {
-        // Remove o botão se já estiver selecionado
         return prev.filter((n) => n !== number);
       } else if (prev.length < maxSelections) {
-        // Adiciona o botão se o limite ainda não foi alcançado
         return [...prev, number];
       } else {
-        // Se o limite for alcançado, não faz nada
         return prev;
       }
     });
@@ -42,7 +53,7 @@ function AddingGames({ gameType }: AddingGamesProps) {
         ))}
       </div>
       <p className="selectionCount">Selecionados: {clickedButtons.length}/{maxSelections}</p>
-      <ButtonAdding isDisabled={clickedButtons.length < 6} label={"Adicionar Jogos"} />
+      <ButtonAdding isDisabled={clickedButtons.length < minSelections} label={actionType === "Bet" ? "Adicionar Jogos" : "Adicionar Sorteio"} />
     </>
   );
 }

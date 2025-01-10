@@ -33,3 +33,7 @@
     background-color: var(--primary-color);
     border: 1px solid #ffff;
 }
+
+.selectionCount {
+    color: #848383
+}

@@ -36,8 +36,9 @@ const Page: React.FC = () => {
             <h3 className={styles.totalPrice}>Valor Investido: {price}</h3>
           </div>
           <h2 className={styles.addGamesAndContestTitle}>Adicione os Jogos</h2>
-          <AddingGames gameType={type} />
+          <AddingGames gameType={type} actionType="Bet" />
           <h2 className={styles.addGamesAndContestTitle}>Adicione o Sorteio</h2>
+          <AddingGames gameType={type} actionType="Contest" />
         </section>
       </Container>
       <Footer />
