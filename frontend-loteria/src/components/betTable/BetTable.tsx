@@ -2,9 +2,8 @@ import React from "react";
 import { useTable, Column } from "react-table";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import "./BetTabel.css"
+import "./BetTabel.css";
 
-// Modelo de dados esperado
 interface BetData {
   id: number;
   valueInvested: number;
@@ -13,59 +12,67 @@ interface BetData {
   matched: number;
 }
 
-// Função para buscar os dados da API
-const fetchBets = async (): Promise<BetData[]> => {
-  const response = await axios.get("http://localhost:8080/pool/1/bets");
+interface BetTabelProp {
+  id: number;
+}
+
+const fetchBets = async (id: number): Promise<BetData[]> => {
+  const response = await axios.get(`http://localhost:8080/pool/${id}/bets`);
   return Array.isArray(response.data) ? response.data : [response.data];
 };
 
-const BetsTable: React.FC = () => {
-  const { data = [], isLoading, isError } = useQuery<BetData[]>({
-    queryKey: ["bets"],
-    queryFn: fetchBets,
+const BetsTable: React.FC<BetTabelProp> = ({ id }) => {
+  const {
+    data = [],
+    isLoading,
+    isError,
+  } = useQuery<BetData[]>({
+    queryKey: ["bets", id],
+    queryFn: () => fetchBets(id),
   });
 
-  // Definindo colunas
   const columns: Column<BetData>[] = React.useMemo(
     () => [
       {
         Header: "Bet",
         accessor: "bet",
-        Cell: ({ value }) => (Array.isArray(value) ? value.join(" ") : value),
+        Cell: ({ value }) => (Array.isArray(value) ? value.join(", ") : value),
       },
       {
         Header: "Matched",
         accessor: "matched",
       },
+      {
+        Header: "Value Invested",
+        accessor: "valueInvested",
+        Cell: ({ value }) => `R$ ${value.toFixed(2)}`, 
+      },
     ],
     []
   );
 
-  // Criando a instância da tabela
-  const {
-    getTableProps,
-    getTableBodyProps,
-    headerGroups,
-    rows,
-    prepareRow,
-  } = useTable({
-    columns,
-    data,
-  });
+  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
+    useTable({
+      columns,
+      data,
+    });
 
   if (isLoading) return <div>Carregando...</div>;
   if (isError) return <div>Erro ao carregar os dados.</div>;
 
   return (
     <div>
-      <table {...getTableProps()} style={{ border: "1px solid black", width: "100%" }}>
+      <table {...getTableProps()}>
         <thead>
-          {headerGroups.map((headerGroup) => (
-            <tr {...headerGroup.getHeaderGroupProps()} key={headerGroup.id}>
-              {headerGroup.headers.map((column) => (
+          {headerGroups.map((headerGroup, headerGroupIndex) => (
+            <tr
+              {...headerGroup.getHeaderGroupProps()}
+              key={headerGroup.id || headerGroupIndex}
+            >
+              {headerGroup.headers.map((column, columnIndex) => (
                 <th
                   {...column.getHeaderProps()}
-                  style={{ border: "1px solid black", padding: "5px" }}
+                  key={column.id || `${headerGroupIndex}-${columnIndex}`}
                 >
                   {column.render("Header")}
                 </th>
@@ -74,15 +81,12 @@ const BetsTable: React.FC = () => {
           ))}
         </thead>
         <tbody {...getTableBodyProps()}>
-          {rows.map((row) => {
+          {rows.map((row, rowIndex) => {
             prepareRow(row);
             return (
-              <tr {...row.getRowProps()} key={row.id}>
-                {row.cells.map((cell) => (
-                  <td
-                    {...cell.getCellProps()}
-                    style={{ border: "1px solid black", padding: "5px" }}
-                  >
+              <tr {...row.getRowProps()} key={row.id || rowIndex}>
+                {row.cells.map((cell, cellIndex) => (
+                  <td {...cell.getCellProps()} key={`${rowIndex}-${cellIndex}`}>
                     {cell.render("Cell")}
                   </td>
                 ))}
