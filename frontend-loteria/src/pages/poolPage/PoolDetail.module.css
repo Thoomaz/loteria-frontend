@@ -48,3 +48,9 @@
   font-weight: normal;
   align-self: flex-end;
 }
+
+.addGamesAndContestTitle {
+  color: var(--primary-color);
+  font-size: 30px;
+  padding: 30px;
+}

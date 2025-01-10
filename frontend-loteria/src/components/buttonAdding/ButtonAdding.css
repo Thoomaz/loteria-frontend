@@ -1,0 +1,22 @@
+.addButton {
+    border-radius: 10px;
+    color: #ffff;
+    font-size: 20px;
+    background-color: var(--tertiary-color);
+    padding: 10px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 30px;
+}
+
+.addButton:hover {
+    background-color: #1685a7;
+}
+
+.addButton:disabled {
+    background-color: #dcdcdc;
+    color: #aaa;
+    cursor: not-allowed;
+    opacity: 0.5;
+}

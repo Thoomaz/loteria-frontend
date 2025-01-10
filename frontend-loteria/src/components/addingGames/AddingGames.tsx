@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./AddingGames.css";
+import ButtonAdding from "../buttonAdding/ButtonAdding";
 
 interface AddingGamesProps {
   gameType: string;
@@ -29,7 +30,6 @@ function AddingGames({ gameType }: AddingGamesProps) {
 
   return (
     <>
-      <h2 className="addingGamesTitle">Adicione os Jogos</h2>
       <div className="buttonsContainer">
         {Array.from({ length: totalButtons }, (_, index) => index + 1).map((number) => (
           <button
@@ -42,9 +42,7 @@ function AddingGames({ gameType }: AddingGamesProps) {
         ))}
       </div>
       <p className="selectionCount">Selecionados: {clickedButtons.length}/{maxSelections}</p>
-      <button className="addButton" disabled={clickedButtons.length === 0}>
-        Adicionar
-      </button>
+      <ButtonAdding isDisabled={clickedButtons.length < 6} label={"Adicionar Jogos"} />
     </>
   );
 }
