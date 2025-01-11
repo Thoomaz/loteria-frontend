@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import "./BetTable.css";
 import Loader from "../loader/Loader";
+import ErrorMessage from "../errorMessage/ErrorMessage";
 
 interface BetData {
   id: number;
@@ -59,7 +60,7 @@ const BetsTable: React.FC<BetTabelProp> = ({ id }) => {
     });
 
   if (isLoading) return <Loader />;
-  if (isError) return <div>Erro ao carregar os dados.</div>;
+  if (isError) return <ErrorMessage message="Erro no processamento dos resultados."/>;
 
   return (
     <div>

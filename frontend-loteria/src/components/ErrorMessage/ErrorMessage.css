@@ -22,9 +22,13 @@
     gap: 15px;
 }
 
-.errorMessage {
+.errorTitle {
     color: var(--primary-color);
     font-size: 30px;
+}
+
+.errorMessage {
+    color: #848383;
 }
 
 .errorButton{
