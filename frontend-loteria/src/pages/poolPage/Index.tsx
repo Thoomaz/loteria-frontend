@@ -3,8 +3,9 @@ import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import Container from "../../components/container/Container";
 import styles from "./PoolDetail.module.css";
-import AddingGames from "../../components/addingGames/AddingGames";
 import BetsTable from "../../components/betTable/BetTable";
+import AddingBet from "../../components/addingBet/AddingBet";
+import AddingContest from "../../components/addingContest/AddingContest";
 
 interface CardsState {
   id: number;
@@ -36,9 +37,9 @@ const Page: React.FC = () => {
             <h3 className={styles.totalPrice}>Valor Investido: {price}</h3>
           </div>
           <h2 className={styles.addGamesAndContestTitle}>Adicione os Jogos</h2>
-          <AddingGames gameType={type} actionType="Bet" />
+          <AddingBet id={id} gameType={type} />
           <h2 className={styles.addGamesAndContestTitle}>Adicione o Sorteio</h2>
-          <AddingGames gameType={type} actionType="Contest" />
+          <AddingContest id={id} gameType={type} />
         </section>
       </Container>
       <Footer />

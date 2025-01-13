@@ -1,37 +1,17 @@
 import React from "react";
 import { useTable, Column } from "react-table";
-import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
+import { useBetsData } from "../../hooks/TableData";
 import "./BetTable.css";
 import Loader from "../loader/Loader";
 import ErrorMessage from "../errorMessage/ErrorMessage";
-
-interface BetData {
-  id: number;
-  valueInvested: number;
-  quantityNumbers: number;
-  bet: number[];
-  matched: number;
-}
+import { BetData } from "../../interfaces/bet-data";
 
 interface BetTabelProp {
   id: number;
 }
 
-const fetchBets = async (id: number): Promise<BetData[]> => {
-  const response = await axios.get(`http://localhost:8080/pool/${id}/bets`);
-  return Array.isArray(response.data) ? response.data : [response.data];
-};
-
 const BetsTable: React.FC<BetTabelProp> = ({ id }) => {
-  const {
-    data = [],
-    isLoading,
-    isError,
-  } = useQuery<BetData[]>({
-    queryKey: ["bets", id],
-    queryFn: () => fetchBets(id),
-  });
+  const { data, isLoading, isError } = useBetsData(id);
 
   const columns: Column<BetData>[] = React.useMemo(
     () => [
@@ -60,7 +40,7 @@ const BetsTable: React.FC<BetTabelProp> = ({ id }) => {
     });
 
   if (isLoading) return <Loader />;
-  if (isError) return <ErrorMessage message="Erro no processamento dos resultados."/>;
+  if (isError) return <ErrorMessage message="Erro no processamento dos resultados." />;
 
   return (
     <div>
