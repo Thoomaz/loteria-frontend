@@ -6,11 +6,11 @@ import Card from "../../components/card/Card";
 import ButtonCreatePool from "../../components/buttonCreatePool/ButtonCreatePool";
 import Modal from "../../components/modal/Modal";
 import { useEffect, useState } from "react";
-import { cardsData } from "../../hooks/CardsData";
+import { poolsData } from "../../hooks/CardsData";
 import Loader from "../../components/loader/Loader";
 
 function Home() {
-  const { data } = cardsData();
+  const { data } = poolsData();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [loading, setLoading] =useState(true);

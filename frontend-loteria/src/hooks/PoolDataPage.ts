@@ -4,21 +4,21 @@ import { PoolData } from "../interfaces/pool-data";
 
 const API_URL = 'http://localhost:8080'
 
-const fetchData = async (): AxiosPromise<PoolData[]> => {
-    const response = await axios.get<PoolData[]>(API_URL + '/pool');
+const fetchPool = (id: number): AxiosPromise<PoolData> => {
+    const response = axios.get(`${API_URL}/pool/${id}`);
     return response;
 }
 
-export function poolsData(){
+export function poolData(id: number){
     
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const query = useQuery({
-        queryKey: ['pool'],
-        queryFn: fetchData
-    })
+        queryKey: ['pool', id],
+        queryFn: () => fetchPool(id),
+    });
 
     return {
         ...query,
-        data: query.data?.data 
+        data: query.data?.data
     };
 }

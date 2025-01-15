@@ -6,6 +6,7 @@ import styles from "./PoolDetail.module.css";
 import BetsTable from "../../components/betTable/BetTable";
 import AddingBet from "../../components/addingBet/AddingBet";
 import AddingContest from "../../components/addingContest/AddingContest";
+import { poolData } from "../../hooks/PoolDataPage";
 
 interface CardsState {
   id: number;
@@ -18,9 +19,14 @@ const Page: React.FC = () => {
   const { title } = useParams<{ title: string }>();
   const location = useLocation();
   const state = location.state as CardsState | null;
+  const { id = 0, type } = state || { id: 0, type: "default" };
+  
+  const { data } = poolData(id);
 
-  const { id = 0, type, price } = state || { id: 0, type: "defaultType", price: 0 };
-
+  const pool = data || {
+    valueTotal: 0
+  }
+  
   return (
     <>
       <Header />
@@ -34,7 +40,7 @@ const Page: React.FC = () => {
           <div className={styles.tableContainer}>
             <BetsTable id={id} />
             <p>ID: {id}</p>
-            <h3 className={styles.totalPrice}>Valor Investido: {price}</h3>
+            <h3 className={styles.totalPrice}>Valor Investido: {pool?.valueTotal}</h3>
           </div>
           <h2 className={styles.addGamesAndContestTitle}>Adicione os Jogos</h2>
           <AddingBet id={id} gameType={type} />

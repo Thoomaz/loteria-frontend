@@ -13,7 +13,7 @@ const Card: React.FC<CardProps> = ({ id, title, type, price }) => {
   return (
     <Link
       to={"/"+title}
-      state={{id,title,type,price}}
+      state={{id, title, type}}
       className="cardLink"
     >
       <div className="card">
