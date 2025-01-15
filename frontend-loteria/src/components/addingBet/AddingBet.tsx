@@ -29,7 +29,7 @@ function AddingBet({ id, gameType }: AddingGameProps) {
 
   const handleSubmit = () => {
     createBet.mutate(
-      { id, bet: clickedButtons },
+      { id, gameType ,bet: clickedButtons },
       {
         onSuccess: (data) => {
           queryClient.invalidateQueries();
