@@ -60,6 +60,7 @@
   .charCounter {
     color: #666;
     text-align: right;
+    font-size: 14px;
   }
 
   .lotteryChoice:hover {
@@ -81,4 +82,11 @@
 
   .saveButton:hover {
     background-color: #874aff; 
+  }
+
+  .saveButton:disabled {
+    background-color: #dcdcdc;
+    color: #aaa;
+    cursor: not-allowed;
+    opacity: 0.5;
   }

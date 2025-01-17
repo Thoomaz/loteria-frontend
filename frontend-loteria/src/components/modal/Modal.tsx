@@ -89,7 +89,8 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
                 Lotofácil
               </option>
             </select>
-            <button className={styles.saveButton} onClick={handleSubmit}>
+
+            <button className={styles.saveButton} onClick={handleSubmit} disabled={!title.trim()}>
               Salvar
             </button>
           </>
