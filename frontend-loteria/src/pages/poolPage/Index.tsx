@@ -40,7 +40,7 @@ const Page: React.FC = () => {
           <div className={styles.tableContainer}>
             <BetsTable id={id} />
             <p>ID: {id}</p>
-            <h3 className={styles.totalPrice}>Valor Investido: {pool?.valueTotal}</h3>
+            <h3 className={styles.totalPrice}>Valor Investido: R$ {pool?.valueTotal}</h3>
           </div>
           <h2 className={styles.addGamesAndContestTitle}>Adicione os Jogos</h2>
           <AddingBet id={id} gameType={type} />
