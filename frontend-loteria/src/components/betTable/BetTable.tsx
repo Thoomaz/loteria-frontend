@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useTable, Column } from "react-table";
 import { useBetsData } from "../../hooks/TableData";
 import "./BetTable.css";
@@ -11,7 +11,9 @@ interface BetTabelProp {
 }
 
 const BetsTable: React.FC<BetTabelProp> = ({ id }) => {
-  const { data, isLoading, isError } = useBetsData(id);
+  const [page, setPage] = useState(0); // Página atual
+  const [pageSize, setPageSize] = useState(10); // Tamanho da página
+  const { data, isLoading, isError } = useBetsData(id, page, pageSize);
 
   const columns: Column<BetData>[] = React.useMemo(
     () => [
@@ -27,7 +29,7 @@ const BetsTable: React.FC<BetTabelProp> = ({ id }) => {
       {
         Header: "Value Invested",
         accessor: "valueInvested",
-        Cell: ({ value }) => `R$ ${value.toFixed(2)}`, 
+        Cell: ({ value }) => `R$ ${value.toFixed(2)}`,
       },
     ],
     []
@@ -36,14 +38,34 @@ const BetsTable: React.FC<BetTabelProp> = ({ id }) => {
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     useTable({
       columns,
-      data,
+      data: data.content || [],
     });
 
+  const handlePageSizeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setPageSize(Number(event.target.value));
+    setPage(0);
+  };
+
   if (isLoading) return <Loader />;
-  if (isError) return <ErrorMessage message="Erro no processamento dos resultados." />;
+  if (isError)
+    return <ErrorMessage message="Erro no processamento dos resultados." />;
 
   return (
     <div>
+      <div className="pagination-controls">
+        <label htmlFor="pageSize">Itens por página: </label>
+        <select
+          id="pageSize"
+          value={pageSize}
+          onChange={handlePageSizeChange}
+        >
+          {[10, 20, 30, 40, 50].map((size) => (
+            <option key={size} value={size}>
+              {size}
+            </option>
+          ))}
+        </select>
+      </div>
       <table {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup, headerGroupIndex) => (
@@ -77,6 +99,23 @@ const BetsTable: React.FC<BetTabelProp> = ({ id }) => {
           })}
         </tbody>
       </table>
+      <div className="pagination">
+        <button
+          onClick={() => setPage((prev) => Math.max(prev - 1, 0))}
+          disabled={page === 0}
+        >
+          Anterior
+        </button>
+        <span>
+          Página {data.number + 1} de {data.totalPages}
+        </span>
+        <button
+          onClick={() => setPage((prev) => prev + 1)}
+          disabled={data.last}
+        >
+          Próxima
+        </button>
+      </div>
     </div>
   );
 };
