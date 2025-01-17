@@ -4,18 +4,29 @@ import { BetData } from "../interfaces/bet-data";
 
 const API_URL = "http://localhost:8080";
 
-const fetchBets = (id: number): AxiosPromise<BetData[]> => {
-  return axios.get(`${API_URL}/pool/${id}/bets`);
+const fetchBets = (
+  id: number,
+  page: number,
+  pageSize: number
+): AxiosPromise<{
+  content: BetData[];
+  totalPages: number;
+  number: number;
+  last: boolean;
+}> => {
+  return axios.get(`${API_URL}/bet/${id}/`, {
+    params: { page, size: pageSize },
+  });
 };
 
-export function useBetsData(id: number) {
+export function useBetsData(id: number, page: number, pageSize: number) {
   const query = useQuery({
-    queryKey: ["bets", id],
-    queryFn: () => fetchBets(id),
+    queryKey: ["bets", id, page, pageSize],
+    queryFn: () => fetchBets(id, page, pageSize),
   });
 
   return {
     ...query,
-    data: query.data?.data || [],
+    data: query.data?.data || { content: [], totalPages: 0, number: 0, last: true },
   };
 }
