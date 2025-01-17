@@ -7,18 +7,20 @@
   padding: 20px;
 }
 
+.poolPageContent {
+  width: 100%;
+  max-width: 1200px; 
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+}
+
 .poolLogoAndPoolType {
   align-self: flex-start;
   display: flex;
   align-items: center;
-  margin-left: 30px;
-  margin-bottom: 60px;
-  gap: 30px;
-}
-
-.poolLogo {
-  width: 65px;
-  height: 65px;
+  margin-bottom: 40px;
+  gap: 5px;
 }
 
 .poolType {
@@ -30,27 +32,37 @@
 .poolTitle {
   font-size: 30px;
   color: #848383;
-  align-self: flex-start;
-  margin-left: 125px;
   margin-bottom: 25px;
+  margin-left: 50px;
   font-weight: normal;
 }
 
 .tableAndPriceContainer {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; 
+  margin-top: 20px;
+  width: 100%;
 }
 
 .totalPrice {
   color: #848383;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: normal;
-  align-self: flex-end;
 }
 
 .addGamesAndContestTitle {
   color: var(--primary-color);
   font-size: 30px;
   padding: 30px;
+}
+
+@media screen and (max-width: 600px) {
+  .poolLogoAndPoolType,
+  .poolTitle {
+    margin-left: 0;
+  }
+  .tableAndPriceContainer {
+    padding: 0 10px;
+  }
 }

@@ -20,7 +20,7 @@ const Card: React.FC<CardProps> = ({ id, title, type, price }) => {
         <div className="cardContent">
           <h2 className="cardTitle">{title}</h2>
           <p className="cardType">{type}</p>
-          <p className="cardPrice">R$ {price}</p>
+          <p className="cardPrice">R$ {price}.00</p>
         </div>
       </div>
     </Link>

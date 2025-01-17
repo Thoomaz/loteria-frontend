@@ -20,7 +20,7 @@ const Page: React.FC = () => {
   const location = useLocation();
   const state = location.state as CardsState | null;
   const { id = 0, type } = state || { id: 0, type: "default" };
-  
+
   const { data } = poolData(id);
 
   const pool = data || {
@@ -32,14 +32,16 @@ const Page: React.FC = () => {
       <Header />
       <Container>
         <section className={styles.poolContainer}>
-          <div className={styles.poolLogoAndPoolType}>
-            <img src="/icon.svg" alt="Logo" className={styles.poolLogo} />
-            <h1 className={styles.poolType}>{type}</h1>
-          </div>
-          <h1 className={styles.poolTitle}>{title}</h1>
-          <div className={styles.tableAndPriceContainer}>
-            <BetsTable id={id} />
-            <h3 className={styles.totalPrice}>Valor Investido: R$ {pool?.valueTotal}</h3>
+          <div className={styles.poolPageContent}>
+            <div className={styles.poolLogoAndPoolType}>
+              <img src="/icon.svg" alt="Logo" className={styles.poolLogo} />
+              <h1 className={styles.poolType}>{type}</h1>
+            </div>
+            <h1 className={styles.poolTitle}>{title}</h1>
+            <div className={styles.tableAndPriceContainer}>
+              <BetsTable id={id} />
+              <h3 className={styles.totalPrice}>Valor Investido: R$ {pool?.valueTotal}.00</h3>
+            </div>
           </div>
           <h2 className={styles.addGamesAndContestTitle}>Adicione os Jogos</h2>
           <AddingBet id={id} gameType={type} />
