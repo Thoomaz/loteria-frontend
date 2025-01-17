@@ -37,9 +37,8 @@ const Page: React.FC = () => {
             <h1 className={styles.poolType}>{type}</h1>
           </div>
           <h1 className={styles.poolTitle}>{title}</h1>
-          <div className={styles.tableContainer}>
+          <div className={styles.tableAndPriceContainer}>
             <BetsTable id={id} />
-            <p>ID: {id}</p>
             <h3 className={styles.totalPrice}>Valor Investido: R$ {pool?.valueTotal}</h3>
           </div>
           <h2 className={styles.addGamesAndContestTitle}>Adicione os Jogos</h2>

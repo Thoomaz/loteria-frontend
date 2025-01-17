@@ -1,40 +1,110 @@
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    font-size: 18px;
-    text-align: left;
-    background-color: #ffffff;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
+.tableContainer {
+  width: 100%;
+  max-width: 1050px;
+  font-family: Arial, sans-serif;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  background-color: #f9fcfe;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.tableHeaderRow {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #737373;
+}
+
+.tableHeaderCell {
+  padding: 12px;
+  border-bottom: 2px solid #ddd;
+}
+
+.tableBody {
+  text-align: center;
+}
+
+.tableBodyRow {
+  border-bottom: 1px solid #ddd;
+}
+
+.tableBodyRow:hover {
+  background-color: #f1f5f8;
+}
+
+.tableBodyCell {
+  padding: 12px;
+  color: #666;
+}
+
+
+.paginationControls {
+  margin-bottom: 20px;
+  text-align: right;
+}
+
+.pageSizeLabel {
+  color: #848383;
+}
+
+.pageSizeSelect {
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #ffff;
+  background-color: #874aff;
+}
+
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.paginationButton {
+  background-color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 13px;
+  color: #666;
+  cursor: pointer;
+}
+
+.paginationButton:hover {
+  background-color: #874aff;
+  color: white;
+}
+
+.paginationButton:disabled {
+  background-color: #f0f4f8;
+  color: #999;
+  cursor: not-allowed;
+}
+
+.paginationInfo {
+  margin: 0 10px;
+  font-size: 12px;
+  color: #737373;
+}
+
+.tableEmptyContent {
+  text-align: center;
+  padding: 50px 0;
+  font-size: 20px;
+  font-weight: bold;
+  color: #aaa;
+}
   
-  /* Cabeçalho da tabela */
-  thead th {
-    background-color: #4CAF50;
-    color: white;
-    font-weight: bold;
-    padding: 12px 15px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
+
   
-  /* Corpo da tabela */
-  tbody tr {
-    border-bottom: 1px solid #dddddd;
-    transition: background-color 0.3s ease;
-  }
-  
-  tbody tr:nth-of-type(even) {
-    background-color: #f9f9f9; /* Alternância de cores */
-  }
-  
-  tbody tr:hover {
-    background-color: #f1f1f1; /* Cor ao passar o mouse */
-  }
-  
-  tbody td {
-    padding: 10px 15px;
-  }
+
   
   /* Responsividade */
   @media screen and (max-width: 600px) {

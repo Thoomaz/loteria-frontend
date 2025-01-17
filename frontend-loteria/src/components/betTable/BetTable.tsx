@@ -18,16 +18,16 @@ const BetsTable: React.FC<BetTabelProp> = ({ id }) => {
   const columns: Column<BetData>[] = React.useMemo(
     () => [
       {
-        Header: "Bet",
+        Header: "Apostas",
         accessor: "bet",
         Cell: ({ value }) => (Array.isArray(value) ? value.join(", ") : value),
       },
       {
-        Header: "Matched",
+        Header: "Acertos",
         accessor: "matched",
       },
       {
-        Header: "Value Invested",
+        Header: "Valor Investido",
         accessor: "valueInvested",
         Cell: ({ value }) => `R$ ${value.toFixed(2)}`,
       },
@@ -51,32 +51,35 @@ const BetsTable: React.FC<BetTabelProp> = ({ id }) => {
     return <ErrorMessage message="Erro no processamento dos resultados." />;
 
   return (
-    <div>
-      <div className="pagination-controls">
-        <label htmlFor="pageSize">Itens por página: </label>
+    <div className="tableContainer">
+      <div className="paginationControls">
+        <label htmlFor="pageSize" className="pageSizeLabel">Apostas por página: </label>
         <select
           id="pageSize"
           value={pageSize}
           onChange={handlePageSizeChange}
+          className="pageSizeSelect"
         >
           {[10, 20, 30, 40, 50].map((size) => (
-            <option key={size} value={size}>
+            <option key={size} value={size} className="option">
               {size}
             </option>
           ))}
         </select>
       </div>
-      <table {...getTableProps()}>
+      <table {...getTableProps()} className="table">
         <thead>
           {headerGroups.map((headerGroup, headerGroupIndex) => (
             <tr
               {...headerGroup.getHeaderGroupProps()}
               key={headerGroup.id || headerGroupIndex}
+              className="tableHeaderRow"
             >
               {headerGroup.headers.map((column, columnIndex) => (
                 <th
                   {...column.getHeaderProps()}
                   key={column.id || `${headerGroupIndex}-${columnIndex}`}
+                  className="tableHeaderCell"
                 >
                   {column.render("Header")}
                 </th>
@@ -84,13 +87,20 @@ const BetsTable: React.FC<BetTabelProp> = ({ id }) => {
             </tr>
           ))}
         </thead>
-        <tbody {...getTableBodyProps()}>
+        <tbody {...getTableBodyProps()} className="tableBody">
+          {rows.length === 0 && (
+            <tr>
+              <td colSpan={columns.length} className="tableEmptyContent">
+                Sem conteúdo
+              </td>
+            </tr>
+          )}
           {rows.map((row, rowIndex) => {
             prepareRow(row);
             return (
-              <tr {...row.getRowProps()} key={row.id || rowIndex}>
+              <tr {...row.getRowProps()} key={row.id || rowIndex} className="tableBodyRow">
                 {row.cells.map((cell, cellIndex) => (
-                  <td {...cell.getCellProps()} key={`${rowIndex}-${cellIndex}`}>
+                  <td {...cell.getCellProps()} key={`${rowIndex}-${cellIndex}`} className="tableBodyCell">
                     {cell.render("Cell")}
                   </td>
                 ))}
@@ -103,15 +113,17 @@ const BetsTable: React.FC<BetTabelProp> = ({ id }) => {
         <button
           onClick={() => setPage((prev) => Math.max(prev - 1, 0))}
           disabled={page === 0}
+          className="paginationButton"
         >
           Anterior
         </button>
-        <span>
-          Página {data.number + 1} de {data.totalPages}
+        <span className="paginationInfo">
+          Pág. {data.number + 1} de {data.totalPages}
         </span>
         <button
           onClick={() => setPage((prev) => prev + 1)}
           disabled={data.last}
+          className="paginationButton"
         >
           Próxima
         </button>
