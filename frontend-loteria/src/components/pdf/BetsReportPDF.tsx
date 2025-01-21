@@ -1,91 +1,36 @@
 import React from "react";
-import { Page, Text, View, Document, StyleSheet} from "@react-pdf/renderer";
+import { Page, Text, View, Document, Image } from "@react-pdf/renderer";
 import { BetData } from "../../interfaces/bet-data";
+import styles from "./BetsReportPDFStyles";
+import icon from "../../../public/icon.png";
 
 interface BetsReportPDFProps {
   bets: BetData[];
 }
 
-const styles = StyleSheet.create({
-  page: {
-    padding: 30,
-    fontSize: 12,
-    fontFamily: "Helvetica",
-  },
-  header: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
-    marginBottom: 20,
-  },
-  logo: {
-    width: 50,
-    height: 50,
-    marginRight: 15,
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-  subtitle: {
-    fontSize: 14,
-    marginTop: 5,
-  },
-  description: {
-    marginBottom: 20,
-  },
-  drawInfo: {
-    fontSize: 12,
-    marginBottom: 20,
-    color: "gray",
-  },
-  table: {
-    display: "flex",
-    flexDirection: "column",
-    width: "100%",
-    borderWidth: 1,
-    borderColor: "#ddd",
-  },
-  row: {
-    flexDirection: "row",
-    borderBottomWidth: 1,
-    borderBottomColor: "#ddd",
-    padding: 8,
-  },
-  headerRow: {
-    backgroundColor: "#f2f2f2",
-    fontWeight: "bold",
-  },
-  cell: {
-    flex: 1,
-    textAlign: "center",
-  },
-  footer: {
-    marginTop: 30,
-    fontSize: 10,
-    textAlign: "center",
-    color: "gray",
-  },
-});
-
-
 const BetsReportPDF: React.FC<BetsReportPDFProps> = ({bets}) => (
   <Document>
     <Page size="A4" style={styles.page}>
 
+      <View style={styles.header}>
+        <Image src={icon} style={styles.logo} />
         <View>
           <Text style={styles.title}>Resultados</Text>
           <Text style={styles.subtitle}>{"NOME DO BOLÃO AQUI!"}</Text>
         </View>
+      </View>
 
-
-      <Text style={styles.drawInfo}>
-        Sorteio: {"NÚMEROS DO SORTEIO AQUI!"}
+      <Text style={styles.info}>
+        Este documento apresenta os resultados do <Text style={styles.bold}>NOME DO BOLÃO</Text>, 
+        realizado para a modalidade <Text style={styles.bold}>TIPO DO BOLÃO</Text>. O sorteio teve 
+        como resultado os números: <Text style={styles.bold}>NÚMEROS DO SORTEIO</Text>. O arquivo 
+        foi gerado para incluir somente <Text style={styles.bold}>FORMA ESCOLHIDA PARA CRIAR O PDF</Text>.
+      </Text>
+      <Text style={styles.info}>
+        Agradecemos por participar e desejamos boa sorte em futuras apostas!
       </Text>
 
-
       <View style={styles.table}>
- 
         <View style={[styles.row, styles.headerRow]}>
           <Text style={styles.cell}>Apostas</Text>
           <Text style={styles.cell}>Acertos</Text>
@@ -102,7 +47,6 @@ const BetsReportPDF: React.FC<BetsReportPDFProps> = ({bets}) => (
           </View>
         ))}
       </View>
-
 
       <Text style={styles.footer}>
         Relatório gerado automaticamente - {new Date().toLocaleDateString()}
