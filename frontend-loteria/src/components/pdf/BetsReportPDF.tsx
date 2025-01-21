@@ -15,19 +15,22 @@ const BetsReportPDF: React.FC<BetsReportPDFProps> = ({bets}) => (
       <View style={styles.header}>
         <Image src={icon} style={styles.logo} />
         <View>
-          <Text style={styles.title}>Resultados</Text>
-          <Text style={styles.subtitle}>{"NOME DO BOLÃO AQUI!"}</Text>
+          <Text style={styles.title}>Verificador de Bolões</Text>
+          <Text style={styles.subtitle}>Resultados</Text>
         </View>
       </View>
 
       <Text style={styles.info}>
-        Este documento apresenta os resultados do <Text style={styles.bold}>NOME DO BOLÃO</Text>, 
-        realizado para a modalidade <Text style={styles.bold}>TIPO DO BOLÃO</Text>. O sorteio teve 
-        como resultado os números: <Text style={styles.bold}>NÚMEROS DO SORTEIO</Text>. O arquivo 
-        foi gerado para incluir somente <Text style={styles.bold}>FORMA ESCOLHIDA PARA CRIAR O PDF</Text>.
+        O presente documento apresenta os resultados do{" "}
+        <Text style={styles.bold}>Nome do Bolão</Text>, realizado para a modalidade{" "}
+        <Text style={styles.bold}>Tipo do Bolão</Text>. Os números sorteados foram:{" "}
+        <Text style={styles.bold}>Números do Sorteio</Text>.
       </Text>
-      <Text style={styles.info}>
-        Agradecemos por participar e desejamos boa sorte em futuras apostas!
+
+      <Text style={styles.bold}>
+        Tipo de documento:{" "} 
+        <Text style={styles.info}>Forma Escolhida para Gerar o PDF (Apenas a pág. atual; 
+          Apenas acertos; Todas as apostas).</Text>
       </Text>
 
       <View style={styles.table}>
@@ -49,7 +52,10 @@ const BetsReportPDF: React.FC<BetsReportPDFProps> = ({bets}) => (
       </View>
 
       <Text style={styles.footer}>
-        Relatório gerado automaticamente - {new Date().toLocaleDateString()}
+        Agradecemos por participar e desejamos boa sorte em futuras apostas!
+      </Text>
+      <Text style={styles.footer}>
+        Este documento foi gerado automaticamente - {new Date().toLocaleDateString()}
       </Text>
     </Page>
   </Document>

@@ -1,6 +1,10 @@
 import { StyleSheet } from "@react-pdf/renderer";
 
 const styles = StyleSheet.create({
+  downloadLogo: {
+    width: 25,
+    marginLeft: 5,
+  },
     page: {
         padding: 30,
         fontSize: 12,
@@ -29,14 +33,14 @@ const styles = StyleSheet.create({
       marginBottom: 20,
     },
     info: {
-        fontWeight: "normal",
+      fontWeight: "normal",
       fontSize: 12,
-      marginBottom: 20,
       color: "gray",
     },
     bold: {
         fontWeight: "bold",
-        fontSize: 14,
+        fontSize: 13,
+        color: "#666666",
     },
     table: {
       display: "flex",
@@ -44,6 +48,7 @@ const styles = StyleSheet.create({
       width: "100%",
       borderWidth: 1,
       borderColor: "#ddd",
+      marginTop: 20,
     },
     row: {
       flexDirection: "row",
