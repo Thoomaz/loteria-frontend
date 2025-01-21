@@ -5,6 +5,8 @@ import "./BetTable.css";
 import Loader from "../loader/Loader";
 import ErrorMessage from "../errorMessage/ErrorMessage";
 import { BetData } from "../../interfaces/bet-data";
+import { PDFDownloadLink } from "@react-pdf/renderer";
+import BetsReportPDF from "../pdf/BetsReportPDF";
 
 interface BetTabelProp {
   id: number;
@@ -67,6 +69,17 @@ const BetsTable: React.FC<BetTabelProp> = ({ id }) => {
           ))}
         </select>
       </div>
+
+      <PDFDownloadLink
+        document={
+          <BetsReportPDF
+            bets={data.content}
+          />
+        }
+        fileName="Resultado_Apostas.pdf"
+        className="generatePDFButton"
+      > Baixar em PDF
+      </PDFDownloadLink>
       <table {...getTableProps()} className="table">
         <thead>
           {headerGroups.map((headerGroup, headerGroupIndex) => (
