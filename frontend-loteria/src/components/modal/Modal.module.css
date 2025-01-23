@@ -10,7 +10,7 @@
     align-items: center;
     z-index: 1000;
   }
-  
+
   .modalContent {
     background-color: var(--secondary-color);
     padding: 20px;
@@ -23,7 +23,7 @@
     flex-direction: column;
     gap: 10px;
   }
-  
+
   .closeButton {
     position: absolute;
     top: 7px;
@@ -33,7 +33,7 @@
     cursor: pointer;
     color: #666;
   }
-  
+
   .closeButton:hover {
     color: #000;
   }
@@ -42,7 +42,7 @@
     color: var(--primary-color);
     font-size: 23px;
   }
-  
+
   .labels {
     color: #666;
     font-size: 15px;
@@ -63,11 +63,9 @@
     font-size: 14px;
   }
 
-  .lotteryChoice:hover {
-    background-color: #ccc;
+  .lotteryChoice {
     cursor: pointer;
   }
-  
 
   .saveButton {
     padding: 10px 20px;
