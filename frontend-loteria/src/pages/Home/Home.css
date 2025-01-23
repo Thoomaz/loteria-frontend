@@ -114,8 +114,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 970px;
+  width: 90%;
+  max-width: 970px;
+  padding-left: 15px;
 }
+
+  .type {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  }
 
 .cardColumnTitles {
   color: #848383;

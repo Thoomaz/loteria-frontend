@@ -58,7 +58,7 @@ function Home() {
 
           <div className="cardColumnTitlesContainer">
             <h3 className="cardColumnTitles">Nome</h3>
-            <h3 className="cardColumnTitles">Modalidade</h3>
+            <h3 className="cardColumnTitles type">Modalidade</h3>
             <h3 className="cardColumnTitles">Valor Invest.</h3>
           </div>
 

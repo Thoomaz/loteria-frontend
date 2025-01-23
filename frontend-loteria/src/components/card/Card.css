@@ -1,5 +1,6 @@
 .card {
-  width: 1000px;
+  width: 90%;
+  max-width: 1000px;
   border: 1px solid #ddd;
   border-radius: 15px;
   padding: 1.3rem;
@@ -27,7 +28,8 @@
 
 .cardType {
   position: absolute;
-  left: 400px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .cardLink {
