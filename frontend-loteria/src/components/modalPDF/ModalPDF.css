@@ -34,15 +34,14 @@
     content: '';
     position: relative;
     margin-right: 10px;
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     border-radius: 50%;
     background-color: #ccc;
   }
   
   .options input[type="radio"]:checked + label::before {
-    background-color: #4CAF50;
-    transform: scale(1.1); /* Não está funcionando */
+    background-color: var(--primary-color);
   }
   
   .options label:hover::before {

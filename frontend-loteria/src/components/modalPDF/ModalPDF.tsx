@@ -12,26 +12,22 @@ const ModalPDF: React.FC<ModalPDFProps> = ({ onClose }) => {
       <div className="modalPDFContent">
         <h2 className="ModalPDFTitle">Gerar PDF</h2>
         <div className="options">
-          <label>
-            <input
-              type="radio"
-              id="all"
-              name="filterOption"
-              value="all"
-              className="option"
-            />
-            Todas as apostas
-          </label>
-          <label>
-            <input
-              type="radio"
-              id="matched"
-              name="filterOption"
-              value="matched"
-              className="option"
-            />
-            Apenas apostas com acertos
-          </label>
+          <input
+            type="radio"
+            id="all"
+            name="filterOption"
+            value="all"
+            className="option"
+          />
+          <label htmlFor="all">Todas as apostas</label>
+          <input
+            type="radio"
+            id="matched"
+            name="filterOption"
+            value="matched"
+            className="option"
+          />
+          <label htmlFor="matched">Apenas apostas com acertos</label>
         </div>
         <div className="actions">
             <button className="confirmButton">Baixar</button>
