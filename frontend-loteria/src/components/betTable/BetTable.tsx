@@ -5,9 +5,7 @@ import "./BetTable.css";
 import Loader from "../loader/Loader";
 import ErrorMessage from "../errorMessage/ErrorMessage";
 import { BetData } from "../../interfaces/bet-data";
-import { PDFDownloadLink } from "@react-pdf/renderer";
-import BetsReportPDF from "../pdf/BetsReportPDF";
-import styles from "../pdf/BetsReportPDFStyles";
+import ModalPDF from "../modalPDF/ModalPDF";
 
 interface BetTabelProp {
   id: number;
@@ -16,6 +14,7 @@ interface BetTabelProp {
 const BetsTable: React.FC<BetTabelProp> = ({ id }) => {
   const [page, setPage] = useState(0); // Página atual
   const [pageSize, setPageSize] = useState(10); // Tamanho da página
+  const [isModalOpen, setModalOpen] = useState(false);
   const { data, isLoading, isError } = useBetsData(id, page, pageSize);
 
   const columns: Column<BetData>[] = React.useMemo(
@@ -132,17 +131,18 @@ const BetsTable: React.FC<BetTabelProp> = ({ id }) => {
         >
           Próxima
         </button>
-        <PDFDownloadLink
-          document={
-            <BetsReportPDF
-              bets={data.content}
-            />
-          }
-          fileName="Resultado_Apostas.pdf"
-          className="generatePDFButton"
-        > <img src="/download-icon.svg" alt="ícone de download" style={styles.downloadLogo}/>
-        </PDFDownloadLink>
+        <img
+          src="/download-icon.svg"
+          alt="ícone de download"
+          style={{cursor: "pointer"}}
+          onClick={() => setModalOpen(true)}
+          className="downloadLogo"
+        />
       </div>
+
+      {isModalOpen && (
+        <ModalPDF onClose={() => setModalOpen(false)}/>
+      )}
     </div>
   );
 };

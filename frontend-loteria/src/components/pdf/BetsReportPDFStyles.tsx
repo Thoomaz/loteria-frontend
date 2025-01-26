@@ -1,10 +1,6 @@
 import { StyleSheet } from "@react-pdf/renderer";
 
 const styles = StyleSheet.create({
-  downloadLogo: {
-    width: 25,
-    marginLeft: 5,
-  },
     page: {
         padding: 30,
         fontSize: 12,

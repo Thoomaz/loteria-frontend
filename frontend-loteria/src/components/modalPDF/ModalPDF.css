@@ -1,0 +1,77 @@
+.modalPDF {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modalPDFContent {
+    background: #ededed;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+  }
+  
+  .ModalPDFTitle {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+  }
+  
+  .options label {
+    color: #737373;
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .options input[type="radio"] {
+    display: none;
+  }
+  
+  .options label::before {
+    content: '';
+    position: relative;
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ccc;
+  }
+  
+  .options input[type="radio"]:checked + label::before {
+    background-color: #4CAF50;
+    transform: scale(1.1); /* Não está funcionando */
+  }
+  
+  .options label:hover::before {
+    background-color: #888;
+  }
+  
+  .confirmButton {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-right: 10px;
+    border-radius: 4px;
+  }
+  
+  .confirmButton:hover {
+    background-color: #348f37;
+  }
+  
+  .cancelButton {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .cancelButton:hover {
+    background-color: #da3a2f;
+  }
