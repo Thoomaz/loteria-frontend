@@ -1,26 +1,25 @@
 .header {
-  width: 100%; /* Ocupa toda a largura da tela */
+  width: 100%;
   height: 80px;
-  background-color: var(--primary-color); /* Cor roxa */
+  background-color: var(--primary-color); 
   color: var(--white);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-radius: 0 0 20px 20px; /* Bordas arredondadas na parte inferior */
-  box-shadow: 0 3px 3px var(--shadow); /* Sombra opcional */
+  border-radius: 0 0 20px 20px; 
+  box-shadow: 0 3px 3px var(--shadow); 
 }
 
 .logo-header {
   width: 35px;
   height: 35px;
-  position: relative;
-  left: 20px;
+  margin-left: 20px;
   
 }
 
 .nav {
   position: relative;
-  right: 50px;
+  padding-right: 20px;
   
   
 }
@@ -41,6 +40,6 @@
 }
 
 .nav-links a:hover {
-  color: #c7c4c4; /* Cor ao passar o mouse */
+  color: #c7c4c4; 
 }
 

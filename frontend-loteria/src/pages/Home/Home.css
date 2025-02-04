@@ -66,38 +66,132 @@
     color: var(--white);
     border: 1px solid var(--primary-color);
     border-radius: 5px;
-    padding: 1px 5px; /* Espaçamento interno */
-    text-decoration: none; /* Remove o sublinhado padrão */
+    padding: 1px 5px;
+    text-decoration: none;
     font-weight: bold;
     background-color: var(--primary-color);
   }
 
   /* Responsividade com Media Queries */
   @media (max-width: 860px) {
+    .logo {
+      width: 400px;
+      height: 300px; 
+    }
+  
+    .title {
+      font-size: 90px;
+      top: 90px;
+      left: 40px;
+    }
+  
+    .largeCircle {
+      width: 300px;
+      height: 300px;
+    }
+  
+    .mediumCircle {
+      width: 80px;
+      height: 80px;
+      top: 80px;
+      left: 310px;
+    }
+  
+    .smallCircle {
+      width: 50px;
+      height: 50px;
+      top: 160px;
+      left: 300px;
+    }
+
     .slogan {
-      top: auto; /* Remove o deslocamento superior */
-      bottom: 220px; /* Move o slogan para 40px da parte inferior */
-      right: 50%; /* Ajusta a distância da lateral direita */
-      text-align: center; /* Alinha o texto à direita */
+      top: auto;
+      bottom: 220px; 
+      right: 50%;
+      text-align: center;
       font-size: 18px;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .logo {
+      width: 300px;
+      height: 230px;
+    }
+  
+    .title {
+      font-size: 70px;
+      top: 70px;
+      left: 30px;
+    }
+  
+    .largeCircle {
+      width: 220px;
+      height: 220px;
+    }
+  
+    .mediumCircle {
+      width: 60px;
+      height: 60px;
+      top: 60px;
+      left: 230px;
+    }
+  
+    .smallCircle {
+      width: 40px;
+      height: 40px;
+      top: 120px;
+      left: 220px;
+    }
+
+    .slogan {
+      top: auto;
+      bottom: 220px;
+      right: 25%; 
+      font-size: 18px; 
+      text-align: center; 
+    }
+  }
+  
+  @media (max-width: 400px) {
+    .logo {
+      width: 200px;
+      height: 180px;
+    }
+  
+    .title {
+      font-size: 50px;
+      top: 50px;
+      left: 20px;
+    }
+  
+    .largeCircle {
+      width: 160px;
+      height: 160px;
+    }
+  
+    .mediumCircle {
+      width: 50px;
+      height: 50px;
+      top: 40px;
+      left: 170px;
+    }
+  
+    .smallCircle {
+      width: 30px;
+      height: 30px;
+      top: 90px;
+      left: 160px;
+    }
+
+    .slogan {
+      margin: 20px auto; 
+      font-size: 16px; 
     }
   }
 
   @media (max-width: 700px) {
-    .slogan {
-      top: auto;
-      bottom: 220px;
-      right: 25%; /* Ajusta para telas muito pequenas */
-      font-size: 18px; /* Reduz o tamanho da fonte */
-      text-align: center; /* Centraliza o texto */
-    }
-  }
 
-  @media (max-width: 480px) {
-    .slogan {
-      margin: 20px auto; /* Centraliza o texto horizontalmente */
-      font-size: 16px; /* Reduz ainda mais o tamanho da fonte */
-    }
   }
 
 /*segunda section*/
