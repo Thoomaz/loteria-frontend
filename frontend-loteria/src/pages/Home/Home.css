@@ -74,6 +74,12 @@
 
   /* Responsividade com Media Queries */
   @media (max-width: 860px) {
+    .presentation {
+      flex-direction: column; 
+      align-items: center; 
+      margin-top: 20px;
+    }
+
     .logo {
       width: 400px;
       height: 300px; 
@@ -105,11 +111,10 @@
     }
 
     .slogan {
-      top: auto;
-      bottom: 220px; 
-      right: 50%;
       text-align: center;
       font-size: 18px;
+      right: auto;
+      left: auto;
     }
   }
   
@@ -147,7 +152,6 @@
     .slogan {
       top: auto;
       bottom: 220px;
-      right: 25%; 
       font-size: 18px; 
       text-align: center; 
     }
@@ -187,11 +191,8 @@
     .slogan {
       margin: 20px auto; 
       font-size: 16px; 
+      text-align: center;
     }
-  }
-
-  @media (max-width: 700px) {
-
   }
 
 /*segunda section*/
