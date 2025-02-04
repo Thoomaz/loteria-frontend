@@ -17,7 +17,8 @@
   position: relative;
 }
 
-.cardTitle  {
+.cardTitle {
+  font-size: clamp(1rem, 2vw, 2rem);
   color: rgb(115, 115, 115);
 }
 
