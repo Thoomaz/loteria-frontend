@@ -1,6 +1,6 @@
 import { useState } from "react";
 import ButtonAdding from "../buttonAdding/ButtonAdding";
-import "./AddingBet.css";
+import "./AddingNumbers.css";
 import { AddingGameProps } from "../../interfaces/adding-game";
 import { useCreateBet } from "../../hooks/CreateBet";
 import { useQueryClient } from "@tanstack/react-query";

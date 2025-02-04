@@ -2,7 +2,7 @@ import { useState } from "react";
 import ButtonAdding from "../buttonAdding/ButtonAdding";
 import { AddingGameProps } from "../../interfaces/adding-game";
 import { useCreateContest } from "../../hooks/CreateContest";
-import "./AddingContest.css";
+import "./AddingNumbers.css";
 import { useQueryClient } from "@tanstack/react-query";
 
 function AddingContest({ id, gameType }: AddingGameProps) {

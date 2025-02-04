@@ -4,8 +4,8 @@ import Footer from "../../components/footer/Footer";
 import Container from "../../components/container/Container";
 import styles from "./PoolDetail.module.css";
 import BetsTable from "../../components/betTable/BetTable";
-import AddingBet from "../../components/addingBet/AddingBet";
-import AddingContest from "../../components/addingContest/AddingContest";
+import AddingBet from "../../components/addingNumbers/AddingBet";
+import AddingContest from "../../components/addingNumbers/AddingContest";
 import { poolData } from "../../hooks/PoolDataPage";
 
 interface CardsState {
