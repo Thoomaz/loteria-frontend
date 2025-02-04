@@ -17,9 +17,19 @@
   position: relative;
 }
 
+.titleContainer {
+  max-width: 400px;
+  word-wrap: break-word;
+  width: 100%;
+}
+
 .cardTitle {
   font-size: clamp(1rem, 2vw, 2rem);
   color: rgb(115, 115, 115);
+}
+
+.cardType, .cardPrice {
+  font-size: clamp(0.8rem, 1.2vw, 1.5rem);
 }
 
 .card p {
@@ -36,4 +46,23 @@
 .cardLink {
   text-decoration: none;
   color: inherit;
+}
+
+/* Media Query para telas menores */
+@media (max-width: 860px) {
+  .titleContainer {
+    max-width: 100px; /* Reduz a largura máxima para telas menores */
+  }
+}
+
+@media (max-width: 600px) {
+  .titleContainer {
+    max-width: 90px; /* Ajuste para telas ainda menores */
+  }
+}
+
+@media (max-width: 400px) {
+  .titleContainer {
+    max-width: 80px; /* Ajuste para telas muito pequenas */
+  }
 }

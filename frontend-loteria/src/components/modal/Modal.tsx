@@ -66,12 +66,12 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
               value={title}
               onChange={(e) => {
                 const value = e.target.value;
-                if (value.length <= 30) {
+                if (value.length <= 20) {
                   setPoolName(value);
                 }
               }}
             />
-            <p className={styles.charCounter}>{title.length}/30</p>
+            <p className={styles.charCounter}>{title.length}/20</p>
             <label htmlFor="lotteryChoice" className={styles.labels}>
               Escolha uma opção:{" "}
             </label>
