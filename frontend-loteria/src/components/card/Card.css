@@ -1,12 +1,14 @@
 .card {
-  width: 1000px;
+  width: 90%;
+  max-width: 1000px;
   border: 1px solid #ddd;
   border-radius: 15px;
   padding: 1.3rem;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
   background-color: white;
   max-height: 50vh;
-  }
+  position: relative;
+}
 
 .cardContent {
   display: flex;
@@ -26,7 +28,8 @@
 
 .cardType {
   position: absolute;
-  left: 400px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .cardLink {

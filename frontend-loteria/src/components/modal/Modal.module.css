@@ -42,7 +42,7 @@
     color: var(--primary-color);
     font-size: 23px;
   }
-  
+
   .labels {
     color: #666;
     font-size: 15px;
@@ -63,11 +63,9 @@
     font-size: 14px;
   }
 
-  .lotteryChoice:hover {
-    background-color: #ccc;
+  .lotteryChoice {
     cursor: pointer;
   }
-  
 
   .saveButton {
     padding: 10px 20px;

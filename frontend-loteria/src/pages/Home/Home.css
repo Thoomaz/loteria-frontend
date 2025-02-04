@@ -7,14 +7,14 @@
     align-items: center;
     justify-content: space-between;
   }
-  
+
   .logo {
     width: 550px;
     height: 405px;
     position: relative;
     left: 5%;
   }
-  
+
   .circle {
     border-radius: 50%;
     background: var(--circles-color);
@@ -24,32 +24,32 @@
     width: 400px;
     height: 400px;
   }
-  
+
   .mediumCircle {
     width: 100px;
     height: 100px;
     top: 110px;
     left: 410px;
   }
-  
+
   .smallCircle {
     width: 60px;
     height: 60px;
     top: 210px;
     left: 400px;
   }
-  
+
   .textPresentation {
     color: var(--primary-color);
     position: absolute;
   }
-  
+
   .title {
     font-size: 125px;
     top: 120px;
     left: 60px;
   }
-  
+
   .slogan {
     width: 240px;
     height: 60px;
@@ -57,11 +57,11 @@
     position: relative;
     right: 10%;
   }
-  
+
   .text {
     font-size: 20px;
   }
-  
+
   .highlight {
     color: var(--white);
     border: 1px solid var(--primary-color);
@@ -71,7 +71,7 @@
     font-weight: bold;
     background-color: var(--primary-color);
   }
-  
+
   /* Responsividade com Media Queries */
   @media (max-width: 860px) {
     .slogan {
@@ -82,7 +82,7 @@
       font-size: 18px;
     }
   }
-  
+
   @media (max-width: 700px) {
     .slogan {
       top: auto;
@@ -92,14 +92,14 @@
       text-align: center; /* Centraliza o texto */
     }
   }
-  
+
   @media (max-width: 480px) {
     .slogan {
       margin: 20px auto; /* Centraliza o texto horizontalmente */
       font-size: 16px; /* Reduz ainda mais o tamanho da fonte */
     }
   }
-  
+
 /*segunda section*/
 .home{
     width: 100%;
@@ -114,7 +114,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 970px;
+  width: 90%;
+  max-width: 970px;
+  padding-left: 15px;
+}
+
+.type {
+position: absolute;
+left: 50%;
+transform: translateX(-50%);
 }
 
 .cardColumnTitles {
