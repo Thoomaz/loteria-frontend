@@ -25,6 +25,7 @@ const Card: React.FC<CardProps> = ({ id, title, type, price }) => {
           </div>
 
       </Link>
+      <button className="deleteButton"><img src="./lixeira.png" alt="Apagar" className="imgDeleteButton" /></button>
     </div>
   );
 };

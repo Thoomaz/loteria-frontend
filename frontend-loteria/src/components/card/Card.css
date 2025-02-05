@@ -48,6 +48,21 @@
   color: inherit;
 }
 
+.deleteButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(30%, -30%);
+}
+
+.card:hover .deleteButton {
+  display: flex;
+}
+
 /* Media Query para telas menores */
 @media (max-width: 860px) {
   .titleContainer {
