@@ -99,11 +99,7 @@
   font-weight: bold;
   color: #aaa;
 }
-  
-
-  
-
-  
+ 
   /* Responsividade */
   @media screen and (max-width: 600px) {
     table {

@@ -11,15 +11,15 @@ interface BetTabelProp {
 }
 
 const BetsTable: React.FC<BetTabelProp> = ({ id }) => {
-  const [page, setPage] = useState(0); // Página atual
-  const [pageSize, setPageSize] = useState(10); // Tamanho da página
+  const [page, setPage] = useState(0);
+  const [pageSize, setPageSize] = useState(10);
   const { data, isLoading, isError } = useBetsData(id, page, pageSize);
 
   const columns: Column<BetData>[] = React.useMemo(
     () => [
       {
         Header: "Apostas",
-        accessor: "bet",
+        accessor: "betNumbers",
         Cell: ({ value }) => (Array.isArray(value) ? value.join(", ") : value),
       },
       {

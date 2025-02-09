@@ -2,6 +2,6 @@ export interface BetData {
     id: number;
     valueInvested: number;
     quantityNumbers: number;
-    bet: number[];
+    betNumbers: number[];
     matched: number;
   }
