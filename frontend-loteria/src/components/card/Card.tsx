@@ -32,7 +32,7 @@ const Card: React.FC<CardProps> = ({ id, title, type, price }) => {
         <img src="./lixeira.png" alt="Apagar" className="imgDeleteButton" />
       </button>
 
-      <ModalDelete isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <ModalDelete isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} poolId={id}/>
 
     </div>
   );

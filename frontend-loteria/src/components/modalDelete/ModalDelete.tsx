@@ -1,18 +1,30 @@
 import React from "react";
 import "./ModalDelete.css";
+import { useDeletePool } from "../../hooks/RemovePool";
+import { useQueryClient } from "@tanstack/react-query";
 
 interface ModalDeleteProps {
     isOpen: boolean;
     onClose: () => void;
+    poolId: number;
 }
 
-const ModalDelete: React.FC<ModalDeleteProps> = ({ isOpen, onClose }) => {
+const ModalDelete: React.FC<ModalDeleteProps> = ({ isOpen, onClose, poolId }) => {
+    const { mutate } = useDeletePool();
+    const queryClient = useQueryClient();
+
     if (!isOpen) return null; 
 
     const handleConfirmDelete = () => {
-        console.log(`Vamos colocar para deletar aqui`);
-        onClose();
+      mutate(poolId, {
+        onSuccess: () => {
+          queryClient.invalidateQueries();
+          onClose();      
+        }
+      })    
     }
+
+    
 
     return (
         <div className="modalDeleteContainer">
