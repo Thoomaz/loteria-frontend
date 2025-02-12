@@ -92,7 +92,7 @@ const BetsTable: React.FC<BetTabelProp> = ({ id }) => {
                   {column.render("Header")}
                 </th>
               ))}
-              <th className="tableHeaderCell">remover</th>
+              <th className="tableHeaderCell"></th>
             </tr>
           ))}
         </thead>
@@ -114,7 +114,7 @@ const BetsTable: React.FC<BetTabelProp> = ({ id }) => {
                     {cell.render("Cell")}
                   </td>
                 ))}
-                <td className="tableBodyCell">
+                <td className="tableBodyCell removeColumn">
                   <IconButton
                     onClick={() => handleRemoveRow(betId)}
                     aria-label="Remover aposta"
