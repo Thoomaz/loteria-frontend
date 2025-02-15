@@ -18,6 +18,30 @@
     cursor: pointer;
 }
 
+.buttonErrorContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+  }
+  
+  .errorBox {
+    background-color: #ff4d4d;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 5px;
+    font-size: 18px;
+    animation: fadeInOut 4s ease-in-out;
+  }
+  
+  @keyframes fadeInOut {
+    0% { opacity: 0; }
+    20% { opacity: 1; }
+    70% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+
+
 @media (max-width: 860px) {
     .buttonsContainer {
         width: 500px;

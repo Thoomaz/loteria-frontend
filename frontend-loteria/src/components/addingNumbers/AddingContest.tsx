@@ -8,7 +8,8 @@ import { useQueryClient } from "@tanstack/react-query";
 function AddingContest({ id, gameType }: AddingGameProps) {
   const queryClient = useQueryClient();
   const [clickedButtons, setClickedButtons] = useState<number[]>([]);
-  
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
   const totalButtons = gameType === "Mega-Sena" ? 60 : 25;
   const minSelections = gameType === "Mega-Sena" ? 6 : 15;
   const maxSelections = minSelections;
@@ -34,10 +35,15 @@ function AddingContest({ id, gameType }: AddingGameProps) {
         onSuccess: () => {
           queryClient.invalidateQueries();
           setClickedButtons([]);
+          setErrorMessage(null); // Remove qualquer erro anterior
         },
         onError: (error) => {
-          console.error("Error ao enviar o contest: ", error)
-        }
+          console.error("Erro ao enviar o contest: ", error);
+          setErrorMessage("Erro ao enviar o sorteio!");
+
+          // Remove a mensagem de erro após 3 segundos
+          setTimeout(() => setErrorMessage(null), 3000);
+        },
       }
     );
   };
@@ -58,11 +64,14 @@ function AddingContest({ id, gameType }: AddingGameProps) {
       <p className="selectionCount">
         Selecionados: {clickedButtons.length}/{maxSelections}
       </p>
-      <ButtonAdding
-        isDisabled={clickedButtons.length < minSelections}
-        label={"Adicionar Sorteio"}
-        onClick={handleSubmit}
-      />
+      <div className="buttonErrorContainer">
+        <ButtonAdding
+          isDisabled={clickedButtons.length < minSelections}
+          label={"Adicionar Sorteio"}
+          onClick={handleSubmit}
+        />
+        {errorMessage && <span className="errorBox">{errorMessage}</span>}
+      </div>
     </>
   );
 }

@@ -34,10 +34,8 @@ const Page: React.FC = () => {
         <section className={styles.poolContainer}>
           <div className={styles.poolPageContent}>
             <div className={styles.poolLogoAndPoolType}>
-              <img src="/icon.svg" alt="Logo" className={styles.poolLogo} />
-              <h1 className={styles.poolType}>{type}</h1>
+              <h1 className={styles.poolType}>{title}</h1>
             </div>
-            <h1 className={styles.poolTitle}>{title}</h1>
             <div className={styles.tableAndPriceContainer}>
               <BetsTable id={id} />
               <h3 className={styles.totalPrice}>Valor Investido: R$ {pool?.valueTotal.toFixed(2)}</h3>

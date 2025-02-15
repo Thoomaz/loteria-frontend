@@ -7,6 +7,7 @@ import { useQueryClient } from "@tanstack/react-query";
 
 function AddingBet({ id, gameType }: AddingGameProps) {
   const [clickedButtons, setClickedButtons] = useState<number[]>([]);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const queryClient = useQueryClient();
 
   const totalButtons = gameType === "Mega-Sena" ? 60 : 25;
@@ -29,15 +30,18 @@ function AddingBet({ id, gameType }: AddingGameProps) {
 
   const handleSubmit = () => {
     createBet.mutate(
-      { id, gameType ,betNumbers: clickedButtons },
+      { id, gameType, betNumbers: clickedButtons },
       {
-        onSuccess: (data) => {
+        onSuccess: () => {
           queryClient.invalidateQueries();
-          setClickedButtons([]); // Limpa a seleção dos botões
-          console.log("Bet submitted successfully:", data);
+          setClickedButtons([]);
+          setErrorMessage(null);
         },
         onError: (error) => {
-          console.error("Error submitting bet:", error);
+          console.error("Erro ao adicionar aposta:", error);
+          setErrorMessage("Erro ao adicionar aposta!");
+
+          setTimeout(() => setErrorMessage(null), 4000);
         },
       }
     );
@@ -59,11 +63,14 @@ function AddingBet({ id, gameType }: AddingGameProps) {
       <p className="selectionCount">
         Selecionados: {clickedButtons.length}/{maxSelections}
       </p>
-      <ButtonAdding
-        isDisabled={clickedButtons.length < minSelections}
-        label="Adicionar Jogos"
-        onClick={handleSubmit}
-      />
+      <div className="buttonErrorContainer">
+        <ButtonAdding
+          isDisabled={clickedButtons.length < minSelections}
+          label="Adicionar Jogos"
+          onClick={handleSubmit}
+        />
+        {errorMessage && <span className="errorBox">{errorMessage}</span>}
+      </div>
     </>
   );
 }

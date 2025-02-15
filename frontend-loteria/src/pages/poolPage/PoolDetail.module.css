@@ -24,6 +24,7 @@
 }
 
 .poolType {
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', Verdana, monospace;
   font-size: 60px;
   color: var(--primary-color);
   font-weight: bold;
@@ -46,9 +47,10 @@
 }
 
 .totalPrice {
-  color: #848383;
-  font-size: 14px;
-  font-weight: normal;
+  margin-top: 20px;
+  color: #3b3a3a;
+  font-size: 15px;
+  font-weight: 600
 }
 
 .addGamesAndContestTitle {
