@@ -30,9 +30,9 @@ const Page: React.FC = () => {
 
   useEffect(() => {
     if (title) {
-      document.title = `${title}`; 
+      document.title = `${title} | ${type}`; 
     }
-  }, [title]);
+  }, [title, type]);
 
   return (
     <>
@@ -41,7 +41,7 @@ const Page: React.FC = () => {
         <section className={styles.poolContainer}>
           <div className={styles.poolPageContent}>
             <div className={styles.poolLogoAndPoolType}>
-              <h1 className={styles.poolType}>{title}</h1>
+              <h1 className={styles.poolTitle}>{title}</h1>
             </div>
             <div className={styles.tableAndPriceContainer}>
               <BetsTable id={id} />
