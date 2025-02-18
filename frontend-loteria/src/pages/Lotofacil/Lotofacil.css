@@ -1,0 +1,16 @@
+.lotoFacil {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.typeLotofacil {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', Verdana, monospace;
+    font-size: 60px;
+    color: var(--primary-color);
+    font-weight: bold;
+    padding: 30px;
+}
