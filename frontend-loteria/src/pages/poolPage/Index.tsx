@@ -7,6 +7,7 @@ import BetsTable from "../../components/betTable/BetTable";
 import AddingBet from "../../components/addingNumbers/AddingBet";
 import AddingContest from "../../components/addingNumbers/AddingContest";
 import { poolData } from "../../hooks/PoolDataPage";
+import { useEffect } from "react";
 
 interface CardsState {
   id: number;
@@ -26,7 +27,13 @@ const Page: React.FC = () => {
   const pool = data || {
     valueTotal: 0
   }
-  
+
+  useEffect(() => {
+    if (title) {
+      document.title = `${title}`; 
+    }
+  }, [title]);
+
   return (
     <>
       <Header />

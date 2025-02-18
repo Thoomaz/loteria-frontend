@@ -13,10 +13,14 @@ function Home() {
   const { data } = poolsData();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [loading, setLoading] =useState(true);
+  const [loading, setLoading] = useState(true);
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
+
+  useEffect(() => {
+    document.title = "Loteria";
+  }, []);
 
   useEffect(() => {
     if (data) {
