@@ -10,14 +10,15 @@ function Header() {
       </Link>
       <nav className="nav">
         <ul className="nav-links">
+          <li>
+            <Link to="/" className="lotoCheck">LotoCheck</Link>
+          </li>
           <li className="nav-item">
-            <a >Como Fazer</a>
+            <p className="tutorial">Como Fazer</p>
             <div className="submenu">
               <Tutorial />
             </div>
           </li>
-          <li><Link to="/megasena">Mega-sena</Link></li>
-          <li><Link to="/lotofacil">Lotofácil</Link></li>
         </ul>
       </nav>
     </header>

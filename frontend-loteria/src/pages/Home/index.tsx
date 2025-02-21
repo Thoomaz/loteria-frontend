@@ -19,7 +19,7 @@ function Home() {
   const closeModal = () => setIsModalOpen(false);
 
   useEffect(() => {
-    document.title = "Loteria";
+    document.title = "LotoCheck";
   }, []);
 
   useEffect(() => {
