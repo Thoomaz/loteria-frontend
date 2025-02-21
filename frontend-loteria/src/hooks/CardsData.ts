@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios, {AxiosPromise } from "axios";
 import { PoolData } from "../interfaces/pool-data";
 
-const API_URL = 'http://localhost:8080'
+const API_URL = 'https://loteria-backend-o6rd.onrender.com'
 
 const fetchData = async (): AxiosPromise<PoolData[]> => {
     const response = await axios.get<PoolData[]>(API_URL + '/pool');

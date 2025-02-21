@@ -2,7 +2,7 @@
 import { useMutation } from "@tanstack/react-query";
 import axios, { AxiosPromise } from "axios";
 
-const API_URL = "http://localhost:8080";
+const API_URL = "https://loteria-backend-o6rd.onrender.com";
 
 // Função para fazer o POST com os dados do concurso
 const postContest = async (data: { id: number; drawNumbers: number[] }): AxiosPromise<any> => {

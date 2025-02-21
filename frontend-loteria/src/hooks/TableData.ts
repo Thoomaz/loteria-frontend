@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios, { AxiosPromise } from "axios";
 import { BetData } from "../interfaces/bet-data";
 
-const API_URL = "http://localhost:8080";
+const API_URL = "https://loteria-backend-o6rd.onrender.com";
 
 const fetchBets = (
   id: number,

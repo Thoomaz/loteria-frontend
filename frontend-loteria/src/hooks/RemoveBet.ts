@@ -5,7 +5,7 @@ const useDeleteBet = () => {
 
   return useMutation({
     mutationFn: async (betId: number) => {
-      const response = await fetch(`http://localhost:8080/bet/${betId}`, {
+      const response = await fetch(`https://loteria-backend-o6rd.onrender.com/bet/${betId}`, {
         method: "DELETE",
       });
 
