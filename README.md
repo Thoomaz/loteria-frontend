@@ -33,6 +33,11 @@ Este projeto foi desenvolvido com o objetivo de gerenciar grandes quantias de ap
    ```bash
    npm run dev
    ```
+## 🌐 Conexão com o Backend
+
+Para conectar com o Backend, basta clonar o repositório e executar o projeto localmente.
+
+👉 [Acesse o repositório](https://github.com/FilipeKevyn/Loteria-Backend)
 
 ## 📌 Estilos e Componentização
 
