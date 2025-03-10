@@ -1,11 +1,13 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const useDeleteBet = () => {
   const queryClient = useQueryClient();
 
   return useMutation({
     mutationFn: async (betId: number) => {
-      const response = await fetch(`https://loteria-backend-o6rd.onrender.com/bet/${betId}`, {
+      const response = await fetch(`${API_URL}/bet/${betId}`, {
         method: "DELETE",
       });
 

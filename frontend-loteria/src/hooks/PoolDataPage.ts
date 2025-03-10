@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios, {AxiosPromise } from "axios";
 import { PoolData } from "../interfaces/pool-data";
 
-const API_URL = 'https://loteria-backend-o6rd.onrender.com'
+const API_URL = import.meta.env.VITE_API_URL;
 
 const fetchPool = (id: number): AxiosPromise<PoolData> => {
     const response = axios.get(`${API_URL}/pool/${id}`);

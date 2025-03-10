@@ -4,7 +4,7 @@ import { useMutation } from "@tanstack/react-query";
 import axios, { AxiosPromise } from "axios";
 import { PoolInput } from "../interfaces/pool-input";
 
-const API_URL = 'https://loteria-backend-o6rd.onrender.com'
+const API_URL = import.meta.env.VITE_API_URL;
 
 const postData = async (data: PoolInput): AxiosPromise<any> => {
     const response = await axios.post<any>(API_URL + '/pool/create', data);
